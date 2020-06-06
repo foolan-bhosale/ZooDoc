@@ -4,7 +4,7 @@ import SearchResult from './SearchResult'
 import AppForm from './AppForm'
 import { Route, Link } from 'react-router-dom';
 
-const doctors = [
+const doctorData = [
 	{
 		name: 'Tymoteusz Hopkins',
 		city: 'Los Angeles',
@@ -25,15 +25,16 @@ const doctors = [
 ];
 function Index() {
   const [searchString, setSearchString] = useState('');
-  const [searchResult, setSearchResult] = useState('');
+	const [doctors, setDoctors] = useState('');
 	
-  useEffect(() => {setSearchResult(doctors)}, []);
-  const console =()=> {
-    console.log('testing');
-  }
+  // useEffect(() => {setSearchResult(doctors)}, []);
+	function getDoctors(){
+		setDoctors(doctorData)
+	}
+	
 	const onSubmit = (event) => {
 		event.preventDefault();
-		searchResult();
+		getDoctors();
 	};
 	const onChange = (event) => {
 		setSearchString(event.target.value);
@@ -55,9 +56,8 @@ function Index() {
 					onSubmit={onSubmit}
 					onChange={onChange}
           searchString={searchString}
-          console={console}
 				/>
-        <SearchResult searchResult={searchResult}/>
+        <SearchResult doctors={doctors}/>
 				<AppForm />
 			</body>
 		</>
