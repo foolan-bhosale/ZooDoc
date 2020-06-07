@@ -36,8 +36,10 @@ function Home() {
 		getDoctors();
 	}, []);
 
+	const filteredDoctors = doctorData.filter((doctor) => doctor.city.includes(searchString))
+	console.log(filteredDoctors)
 	function getDoctors() {
-		setDoctors(doctorData);
+		setDoctors(filteredDoctors)
 	}
 
 	const onSubmit = (event) => {

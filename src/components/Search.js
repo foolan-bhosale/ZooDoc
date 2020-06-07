@@ -23,7 +23,7 @@ function Search(props) {
 					<option value='Specialty'>Specialty</option>
 				</select>
 				<Link to={'/doctors'}>
-				<button type='submit'>Submit</button>
+				<button type='submit' value='New York' name='New York'>New York</button>
 				</Link>
 			</form>
 		</>
