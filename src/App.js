@@ -1,10 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Index from './components/Index'
+import Home from './components/Home'
 
 function App() {
-  return <Index />
+  return <Home />
 }
 
 export default App;

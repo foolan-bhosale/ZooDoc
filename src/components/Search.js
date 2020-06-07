@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Search(props) {
 	return (
 		<>
 			<form onSubmit={props.onSubmit}>
-				<label htmlFor='search'>
+				{/* <label htmlFor='search'> */}
 					<input
 						placeholder='Search by City'
 						type='text'
@@ -14,10 +15,16 @@ function Search(props) {
 						onChange={props.onChange}
 						value={props.searchString}
 					/>
-				</label>
-				<button type='submit' value='General' >General</button>
-				<button type='submit' value='Dental'>Dental</button>
-				<button type='submit' value='Specialty'>Specialty</button>
+				{/* </label> */}
+				{/* <label >Choose doctor type:</label> */}
+				<select >
+					<option value='General'>General</option>
+					<option value='Dental'>Dental</option>
+					<option value='Specialty'>Specialty</option>
+				</select>
+				<Link to={'/doctors'}>
+				<button type='submit'>Submit</button>
+				</Link>
 			</form>
 		</>
 	);
