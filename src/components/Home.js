@@ -3,6 +3,7 @@ import Search from './Search';
 import SearchResult from './SearchResult';
 import AppForm from './AppForm';
 import Doctor from './Doctor';
+import Confirmation from './Confirmation'
 import Profile from './Profile'
 import { Route, Link } from 'react-router-dom';
 import Signup from './Signup';
@@ -32,19 +33,25 @@ function Home() {
 	const [searchString, setSearchString] = useState('');
 	const [doctors, setDoctors] = useState('');
 
-	useEffect(() => {
-		getDoctors();
-	}, []);
 
-	const filteredDoctors = doctorData.filter((doctor) => doctor.city.includes(searchString))
-	console.log(filteredDoctors)
-	function getDoctors() {
-		setDoctors(filteredDoctors)
-	}
+	// useEffect(() => {
+	// 	getDoctors();
+	// }, []);
+
+
+
+	// function getDoctors() {
+	// 	setDoctors(doctorData)
+	// }
 
 	const onSubmit = (event) => {
+		console.log('it runs')
 		event.preventDefault();
-		getDoctors();
+			const filteredDoctors = doctorData.filter((doctor) =>
+				doctor.city.includes(searchString)
+			);
+		setDoctors(filteredDoctors)
+	
 	};
 	const onChange = (event) => {
 		setSearchString(event.target.value);
@@ -76,10 +83,10 @@ function Home() {
 					}}
 				/>
 				<Route
-					path='/doctors'
+					path='/doctor/:city'
 					exact={true}
-					render={() => {
-						return <SearchResult doctors={doctors} />;
+					render={(routerProps) => {
+						return <SearchResult match={routerProps.match} doctors={doctors} />;
 					}}
 				/>
 
@@ -94,6 +101,7 @@ function Home() {
 				<Route path='/appointment' component={AppForm} />
 				<Route path='/signup' component={Signup} />
 				<Route path='/login' component={Login} />
+				<Route path='/confirmation' component={Confirmation} />
 				<Route path='/profile' component={Profile} />
 			</main>
 		</>
