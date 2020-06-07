@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button'
 
 function Search(props) {
 	return (
+		<div className='search-container'>
 		<div className='search'>
 			<Form onSubmit={props.onSubmit}>
 				<Form.Group controlId='SearchByCity'>
@@ -17,7 +18,7 @@ function Search(props) {
 						value={props.searchString}
 					/>
 				</Form.Group>
-
+				
 				<Form.Group controlId='exampleForm.ControlSelect1'>
 					<Form.Control as='select'>
 						<option>General</option>
@@ -30,6 +31,7 @@ function Search(props) {
 					<button type='submit'>Submit</button>
 				</Link>
 			</Form>
+		</div>
 		</div>
 	);
 }

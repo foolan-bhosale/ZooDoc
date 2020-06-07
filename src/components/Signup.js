@@ -10,7 +10,7 @@ function Signup() {
 			<div className='signup-container'>
 				<Modal.Dialog>
 					<Modal.Header>
-						<Modal.Title>Log In</Modal.Title>
+						<Modal.Title>Sign Up</Modal.Title>
 					</Modal.Header>
 
 					<Modal.Body>

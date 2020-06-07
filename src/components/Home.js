@@ -7,6 +7,7 @@ import Profile from './Profile'
 import { Route, Link } from 'react-router-dom';
 import Signup from './Signup';
 import Login from './Login';
+import 
 
 const doctorData = [
 	{
@@ -50,16 +51,20 @@ function Home() {
 	return (
 		<>
 			<nav>
-				<Link to='/signup'>Sign up </Link>
-				<Link to='/login'> Log in</Link>
+			<div className='title'>
+				<Link to='/'>
+					<p className='zoodoc'>Zoo Doc</p>
+				</Link>
+				<p className='community'>Find pet care in your community</p>
+				</div>
+				<div className='links'>
+					<Link to='/signup'>Sign up </Link>
+					<Link to='/login'> Log in</Link>
+				</div>
 			</nav>
-			<div className='title'></div>
-			<Link to='/'>
-				<h1>Zoo Doc</h1>
-			</Link>
-			<h3>Find pet care in your community</h3>
 
 			<main>
+				<SlideShow/>
 				<Route
 					path='/'
 					exact={true}

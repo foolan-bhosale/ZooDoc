@@ -1,19 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Tera&family=Oswald:wght@700&display=swap');
 
+* {
+	padding: 0px;
+}
+
 body {
 	background-color: #ede7e3;
 }
 
 nav {
 	background: #586f6b;
-	color: white;
-	text-align: right;
-	padding: 0 20px;
-	display: block;
+	padding: 15px 15px;
+	display: flex;
+	justify-content: space-between;
+	text-decoration: none;
 }
 
-nav a {
-	text-decoration: none;
+.zoodoc {
+	margin: 0px;	
+	font-size: 2.5rem;
+	font-weight: bolder;
+}
+
+.community {
+	margin: 0px;
+	font-weight: bolder;
+}
+
+.links a{
+	background-color: rgba(255, 255, 255, 0.199);
+	border: 1px solid white;
+	margin: 5px;
+	color: #ede7e3;	
 	padding: 10px;
 }
 
@@ -22,15 +40,26 @@ nav a:visited {
 	color: white;
 }
 
-.title {
-	display: inline-block;
+.links a:hover {
 	color: #2c3836;
+	border: 1px solid #2c3836;
 }
 
-a h1 {
-	color: black;
-	font-family: 'Oswald', sans-serif;
-	color: #2c3836;
+.title {
+	display: inline;
+	color: #1d2524;
+	text-align: left;
+}
+
+.search-container{
+	text-align: center;
+	border: 1px solid black;
+}
+
+.search {
+	padding: 15px;
+	width: 75%;
+	text-align: left;
 }
 
 a,
@@ -38,8 +67,4 @@ a:hover,
 a:focus,
 a:active {
 	text-decoration: none;
-}
-
-.search {
-	padding: 15px;
 }
