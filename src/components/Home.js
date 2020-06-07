@@ -3,6 +3,7 @@ import Search from './Search';
 import SearchResult from './SearchResult';
 import AppForm from './AppForm';
 import Doctor from './Doctor';
+import Profile from './Profile'
 import { Route, Link } from 'react-router-dom';
 import Signup from './Signup';
 import Login from './Login';
@@ -87,10 +88,11 @@ function Home() {
 						return <Doctor match={routerProps.match} doctors={doctors} />;
 					}}
 				/>
-			
+
 				<Route path='/appointment' component={AppForm} />
 				<Route path='/signup' component={Signup} />
 				<Route path='/login' component={Login} />
+				<Route path='/profile' component={Profile} />
 			</main>
 		</>
 	);
