@@ -49,15 +49,15 @@ function Home() {
 	};
 	return (
 		<>
-			<Link to='/'>
-				<h1>Zoo Doc</h1>
-			</Link>
-			<h3>Find pet care in your community</h3>
-
 			<nav>
 				<Link to='/signup'>Sign up </Link>
 				<Link to='/login'> Log in</Link>
 			</nav>
+			<div className='title'></div>
+			<Link to='/'>
+				<h1>Zoo Doc</h1>
+			</Link>
+			<h3>Find pet care in your community</h3>
 
 			<main>
 				<Route
