@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 function Search(props) {
+	console.log(props)
 	return (
 		<div className='search-container'>
 		<div className='search'>

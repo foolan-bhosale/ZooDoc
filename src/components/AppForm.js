@@ -34,7 +34,7 @@ function AppForm(props) {
 					value={searchDate}
 				/>
 			</Form.Group>
-			<Link to='/profile'>
+			<Link to='/confirmation'>
 				<Button variant='primary' type='submit'>
 					Submit
 				</Button>
