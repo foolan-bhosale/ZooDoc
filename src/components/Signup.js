@@ -29,7 +29,7 @@ function Signup() {
 								<Form.Control type='password' placeholder='Password' />
 							</Form.Group>
 							<Button variant='primary' type='submit'>
-								Sign In
+								Sign Up
 							</Button>
 						</Form>
 					</Modal.Body>

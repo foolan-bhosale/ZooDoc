@@ -77,7 +77,12 @@ function Home() {
 			</nav>
 
 			<main>
-				<Slideshow />
+
+				<Slideshow/>
+				<div className='spacer'>
+					<p className='search-banner'>Search for a vet in your area</p>
+				</div>
+
 				<Route
 					path='/'
 					exact={true}
