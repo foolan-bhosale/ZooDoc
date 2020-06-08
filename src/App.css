@@ -1,15 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Tera&family=Oswald:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Tera&display=swap');
 
 * {
 	padding: 0px;
 }
 
 body {
-	background-color: #ede7e3;
+	/* background-color: #ede7e3; */
+	background: #1900f596
 }
 
 nav {
-	background: #586f6b;
+	background: #1900f500;
 	padding: 15px 15px;
 	display: flex;
 	justify-content: space-between;
@@ -18,7 +19,8 @@ nav {
 
 .zoodoc {
 	margin: 0px;	
-	font-size: 2.5rem;
+	font-family: 'Lexend Tera', sans-serif;
+	font-size: 2.75rem;
 	font-weight: bolder;
 }
 
@@ -28,9 +30,9 @@ nav {
 }
 
 .links a{
-	background-color: rgba(255, 255, 255, 0.199);
+	background-color: rgba(255, 255, 255, 0.178);
 	border: 1px solid white;
-	margin: 5px;
+	margin: 10px;
 	color: #ede7e3;	
 	padding: 10px;
 }
@@ -49,17 +51,39 @@ nav a:visited {
 	display: inline;
 	color: #1d2524;
 	text-align: left;
+	
+}
+
+.spacer {
+	text-align: center;
+	margin: 15px;
+}
+
+.search-banner {
+	color: white;
+	text-emphasis: bolder;
+	font-size: 2em;
 }
 
 .search-container{
 	text-align: center;
 	border: 1px solid black;
+	background-color: #ede7e3;
+	display: flex;
+	width: 75%;
+	margin: auto;
 }
 
 .search {
 	padding: 15px;
 	width: 75%;
 	text-align: left;
+	border: 1 px solid black; 
+}
+
+.search-button {
+	padding: 5px;
+	background-color: white;
 }
 
 a,

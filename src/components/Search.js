@@ -22,6 +22,7 @@ function Search(props) {
 				
 				<Form.Group controlId='exampleForm.ControlSelect1'>
 					<Form.Control as='select'>
+						<option>Choose service type</option>
 						<option>General</option>
 						<option>Dental</option>
 						<option>Specialty</option>
@@ -29,7 +30,7 @@ function Search(props) {
 				</Form.Group>
 
 				<Link to={'/doctors'}>
-					<button type='submit'>Submit</button>
+					<button type='submit' className='search-button'>Search for a vet</button>
 				</Link>
 			</Form>
 		</div>
