@@ -5,32 +5,39 @@ body {
 	background: #2849cc8e;
 	max-width: 1000px;
 	margin: auto;
+	/* background-image: url('./medical-background.png'); */
+	height: 100%
 }
 
 nav {
-	background: #1900f500;
+	background: #2849cc15;
 	padding: 15px;
 	display: flex;
 	justify-content: space-between;
 	text-decoration: none;
 }
 
-@media (min-width: 576px) {  
-.signup-button {
-	border-radius: 25px;
-	/* margin: 10px; */
-	background-color: rgba(24, 143, 131, 0.831);
-	font-weight: bolder;
-	border: 1px solid rgb(24, 143, 131, 0.831);
-	margin:0;
-}
-.subtitle {
-	color: #2849cc8e
-}
+@media (max-width: 576px) {  
+	.signup-button {
+		border-radius: 25px;
+		background-color: rgba(24, 143, 131, 0.831);
+		font-weight: bolder;
+		border: 1px solid rgb(24, 143, 131, 0.831);
+		margin:0;
+		text-align: right;
+	}
+	.subtitle {
+		color: #1900f500;
+		display:none;
+	}
+
+	.links {
+		text-align: right;
+		margin: 0
+	}
 }
 .signin-button{
 	border-radius: 25px;
-	/* margin: 10px; */
 	background-color: rgba(24, 143, 131, 0.831);
 	font-weight: bolder;
 	border: 1px solid rgb(24, 143, 131, 0.831);
@@ -144,9 +151,9 @@ a:active {
 	text-decoration: none;
 }
 
-.carousel {
+/* .carousel {
 	opacity: 0.8;
-}
+} */
 .search-bar {
 	border-radius: 2em;
 }
