@@ -1,4 +1,3 @@
-
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 
@@ -33,3 +32,4 @@ function SlideShow(){
 }
 
 export default SlideShow
+

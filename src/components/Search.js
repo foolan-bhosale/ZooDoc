@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+
 
 function Search(props) {
 	console.log(props)
@@ -29,8 +29,12 @@ function Search(props) {
 					</Form.Control>
 				</Form.Group>
 
-				<Link to={'/doctors'}>
+
+				<Link to={`/doctors/${props.searchString}`}>
+					<button type='submit'>Submit</button>
+
 					<button type='submit' className='search-button'>Search for a vet</button>
+
 				</Link>
 			</Form>
 		</div>

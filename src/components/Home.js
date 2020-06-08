@@ -3,8 +3,8 @@ import Search from './Search';
 import SearchResult from './SearchResult';
 import AppForm from './AppForm';
 import Doctor from './Doctor';
-import Confirmation from './Confirmation'
-import Profile from './Profile'
+import Confirmation from './Confirmation';
+import Profile from './Profile';
 import { Route, Link } from 'react-router-dom';
 import Signup from './Signup';
 import Login from './Login';
@@ -15,18 +15,31 @@ const doctorData = [
 		name: 'Tymoteusz Hopkins',
 		city: 'Los Angeles',
 		specialties: ['General', 'Dental'],
+		review: '3 stars',
 	},
 	{
 		name: 'Marley Mcnamara',
 		city: 'New York',
 		specialties: ['General', 'Dental', 'Specialty'],
+		review: '4 stars',
 	},
-	{ name: 'Tyler-Jay Shea', city: 'Washington, DC', specialties: ['General'] },
-	{ name: 'Lester Gibbs', city: 'Philadelphia', specialties: ['Specialty'] },
+	{
+		name: 'Tyler-Jay Shea',
+		city: 'Washington, DC',
+		specialties: ['General'],
+		review: '5 stars',
+	},
+	{
+		name: 'Lester Gibbs',
+		city: 'Philadelphia',
+		specialties: ['Specialty'],
+		review: '3 stars',
+	},
 	{
 		name: 'Laith Dalton',
 		city: 'Los Angeles',
 		specialties: ['General', 'Dental'],
+		review: '4 stars',
 	},
 ];
 
@@ -34,25 +47,16 @@ function Home() {
 	const [searchString, setSearchString] = useState('');
 	const [doctors, setDoctors] = useState('');
 
-
-	// useEffect(() => {
-	// 	getDoctors();
-	// }, []);
-
-
-
-	// function getDoctors() {
-	// 	setDoctors(doctorData)
-	// }
-
-	const onSubmit = (event) => {
-		console.log('it runs')
-		event.preventDefault();
-			const filteredDoctors = doctorData.filter((doctor) =>
-				doctor.city.includes(searchString)
-			);
-		setDoctors(filteredDoctors)
 	
+
+	const filteredDoctors = doctorData.filter((doctor) =>
+		doctor.city.toLowerCase().includes(searchString.toLowerCase())
+	);
+	// console.log(filteredDoctors);
+	
+	const onSubmit = (event) => {
+		event.preventDefault();
+		filteredDoctors();
 	};
 	const onChange = (event) => {
 		setSearchString(event.target.value);
@@ -60,11 +64,11 @@ function Home() {
 	return (
 		<>
 			<nav>
-			<div className='title'>
-				<Link to='/'>
-					<p className='zoodoc'>Zoo Doc</p>
-				</Link>
-				<p className='community'>Find pet care in your community</p>
+				<div className='title'>
+					<Link to='/'>
+						<p className='zoodoc'>Zoo Doc</p>
+					</Link>
+					<p className='community'>Find pet care in your community</p>
 				</div>
 				<div className='links'>
 					<Link to='/signup'>Sign up </Link>
@@ -73,10 +77,12 @@ function Home() {
 			</nav>
 
 			<main>
+
 				<Slideshow/>
 				<div className='spacer'>
 					<p className='search-banner'>Search for a vet in your area</p>
 				</div>
+
 				<Route
 					path='/'
 					exact={true}
@@ -91,18 +97,20 @@ function Home() {
 					}}
 				/>
 				<Route
-					path='/doctor/:city'
+					path='/doctors/:city'
 					exact={true}
 					render={(routerProps) => {
-						return <SearchResult match={routerProps.match} doctors={doctors} />;
+						console.log({ doctors });
+						return <SearchResult match={routerProps.match} filteredDoctors={filteredDoctors} />;
 					}}
 				/>
 
 				<Route
-					path='/doctors/:name'
+					path='/doctor/:name'
 					render={(routerProps) => {
-						console.log(routerProps.match);
-						return <Doctor match={routerProps.match} doctors={doctors} />;
+						// console.log(routerProps.match);
+						console.log({ doctors });
+						return <Doctor match={routerProps.match} filteredDoctors={filteredDoctors} />;
 					}}
 				/>
 
