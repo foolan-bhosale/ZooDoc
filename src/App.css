@@ -114,6 +114,11 @@ nav a:visited {
 	border: 1px solid #2c3836;
 } */
 
+.slideshow {
+	/* max-width: 1000px !important;
+	max-height: 500px !important; */
+}
+
 .search-container {
 	text-align: center;
 	/* border: 1px solid black; */

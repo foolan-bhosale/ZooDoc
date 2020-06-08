@@ -7,7 +7,9 @@ function Search(props) {
 	console.log(props);
 	return (
 		<>
-		<Slideshow />
+			<div classname='slideshow'>
+				<Slideshow />
+			</div>
 			<div className='search-container'>
 				<div className='search'>
 					<Form onSubmit={props.onSubmit}>
@@ -25,7 +27,7 @@ function Search(props) {
 
 						<Form.Group controlId='exampleForm.ControlSelect1'>
 							<Form.Control as='select' className='search-bar'>
-								<option>Choose service type</option>
+								<option>Choose Service Type</option>
 								<option>General</option>
 								<option>Dental</option>
 								<option>Specialty</option>
