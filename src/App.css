@@ -1,20 +1,73 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Tera&display=swap');
 
-* {
-	padding: 0px;
-}
-
 body {
 	/* background-color: #ede7e3; */
-	background: #33468fa5;
+	background: #2849cc8e;
+	max-width: 1000px;
+	margin: auto;
 }
 
 nav {
 	background: #1900f500;
-	padding: 15px 15px;
+	padding: 15px;
 	display: flex;
 	justify-content: space-between;
 	text-decoration: none;
+}
+
+@media (min-width: 576px) {  
+.signup-button {
+	border-radius: 25px;
+	/* margin: 10px; */
+	background-color: rgba(24, 143, 131, 0.831);
+	font-weight: bolder;
+	border: 1px solid rgb(24, 143, 131, 0.831);
+	margin:0;
+}
+.subtitle {
+	color: #2849cc8e
+}
+}
+.signin-button{
+	border-radius: 25px;
+	/* margin: 10px; */
+	background-color: rgba(24, 143, 131, 0.831);
+	font-weight: bolder;
+	border: 1px solid rgb(24, 143, 131, 0.831);
+}
+
+.signup-button{
+	border-radius: 25px;
+	margin: 10px;
+	background-color: rgba(24, 143, 131, 0.831);
+	font-weight: bolder;
+	border: 1px solid rgb(24, 143, 131, 0.831);
+}
+
+.signup-button:hover {
+	border-radius: 25px;
+	margin: 10px;
+	font-weight: bolder;
+	color: rgba(24, 143, 131, 0.831);
+	background-color: rgba(255, 255, 255, 0.26);
+	border: 1px solid rgb(24, 143, 131, 0.831);
+}
+
+.signin-button{
+	border-radius: 25px;
+	margin: 10px;
+	background-color: rgba(24, 143, 131, 0.831);
+	font-weight: bolder;
+	border: 1px solid rgb(24, 143, 131, 0.831);
+}
+
+.signin-button:hover {
+	border-radius: 25px;
+	margin: 10px;
+	font-weight: bolder;
+	color: rgba(24, 143, 131, 0.831);
+	background-color: rgba(255, 255, 255, 0.26);
+	border: 1px solid rgb(24, 143, 131, 0.831);
 }
 
 .zoodoc {
@@ -22,69 +75,62 @@ nav {
 	font-family: 'Lexend Tera', sans-serif;
 	font-size: 2.75rem;
 	font-weight: bolder;
+	color: white;
 }
 
-.community {
+.subtitle {
 	margin: 0px;
 	font-weight: bolder;
+	display:inline-block;
 }
 
-.links a {
+/* .links a {
 	background-color: rgba(255, 255, 255, 0.178);
 	border: 1px solid white;
 	margin: 10px;
 	color: #ede7e3;
 	padding: 10px;
+} */
+
+/* nav a {
+	text-decoration: none;
+	color: white;
 }
 
 nav a:visited {
 	text-decoration: none;
 	color: white;
-}
+} */
 
-.links a:hover {
+/* .links a:hover {
 	color: #2c3836;
 	border: 1px solid #2c3836;
-}
-
-.title {
-	display: inline;
-	color: #1d2524;
-	text-align: left;
-}
-
-.spacer {
-	text-align: center;
-	margin: 15px;
-}
-
-.search-banner {
-	color: white;
-	text-emphasis: bolder;
-	font-size: 2em;
-}
+} */
 
 .search-container {
 	text-align: center;
 	/* border: 1px solid black; */
 	background-color: #e1e1e100;
 	display: flex;
-	width: 50%;
-	margin-top: 200px;
-	margin-left: 380px;
-	position: absolute;
+	margin: auto;
+	/* width: 50%; */
+	max-width: 1000px;
+	/* margin-top: 200px; */
+	/* margin-left: 380px; */
+	/* position: absolute; */
 	z-index: 10;
 }
 
 .search {
 	padding: 15px;
-	width: 75%;
+	width: 100%;
 	text-align: left;
 	border: 0.5 px solid black;
 }
 
 .search-button {
 	padding: 8px;
+	width: 100%;
 	font-weight: bold;
 	color: white;
 	background-color: rgba(24, 143, 131, 0.831);

@@ -8,6 +8,7 @@ import Profile from './Profile';
 import { Route, Link } from 'react-router-dom';
 import Signup from './Signup';
 import Login from './Login';
+import Button from 'react-bootstrap/Button'
 
 
 const doctorData = [
@@ -68,18 +69,23 @@ function Home() {
 					<Link to='/'>
 						<p className='zoodoc'>Zoo Doc</p>
 					</Link>
-					<p className='community'>Find pet care in your community</p>
+					<p className='subtitle'>Find pet care in your community</p>
 				</div>
 				<div className='links'>
-					<Link to='/signup'>Sign up </Link>
-					<Link to='/login'> Log in</Link>
+					<Link to='/signup'>
+						<Button className='signup-button' variant='primary'>
+							Sign Up
+						</Button>
+					</Link>
+					<Link to='/login'>
+						<Button className='signin-button' variant='primary'>
+							Log In
+						</Button>
+					</Link>
 				</div>
 			</nav>
 
 			<main>
-
-				
-
 				<Route
 					path='/'
 					exact={true}
@@ -98,7 +104,12 @@ function Home() {
 					exact={true}
 					render={(routerProps) => {
 						console.log({ doctors });
-						return <SearchResult match={routerProps.match} filteredDoctors={filteredDoctors} />;
+						return (
+							<SearchResult
+								match={routerProps.match}
+								filteredDoctors={filteredDoctors}
+							/>
+						);
 					}}
 				/>
 
@@ -107,7 +118,12 @@ function Home() {
 					render={(routerProps) => {
 						// console.log(routerProps.match);
 						console.log({ doctors });
-						return <Doctor match={routerProps.match} filteredDoctors={filteredDoctors} />;
+						return (
+							<Doctor
+								match={routerProps.match}
+								filteredDoctors={filteredDoctors}
+							/>
+						);
 					}}
 				/>
 

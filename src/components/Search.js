@@ -7,6 +7,7 @@ function Search(props) {
 	console.log(props);
 	return (
 		<>
+		<Slideshow />
 			<div className='search-container'>
 				<div className='search'>
 					<Form onSubmit={props.onSubmit}>
@@ -38,10 +39,6 @@ function Search(props) {
 						</Link>
 					</Form>
 				</div>
-			</div>
-			<Slideshow />
-			<div className='spacer'>
-				<p className='search-banner'>Search for a vet in your area</p>
 			</div>
 		</>
 	);

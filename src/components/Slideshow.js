@@ -8,7 +8,7 @@ function SlideShow(){
 					<img
 						className='d-block w-100'
 						src={require('../imgs/vet-examing-boxer-puppy-555782789-596844295f9b582c3566433c_slim.jpg')}
-						alt='First slide'
+						alt='Boxer Puppy'
 					/>
 				</Carousel.Item>
 
@@ -16,7 +16,7 @@ function SlideShow(){
 					<img
 						className='d-block w-100'
 						src={require('../imgs/image(1).png')}
-						alt='Second slide'
+						alt='Husky Puppy'
 					/>
 				</Carousel.Item>
 
@@ -24,7 +24,7 @@ function SlideShow(){
 					<img
 						className='d-block w-100'
 						src={require('../imgs/header-us-mri-vet_05_slim.jpg')}
-						alt='Third slide'
+						alt='Dog and Cat'
 					/>
 				</Carousel.Item>
 			</Carousel>
@@ -32,4 +32,3 @@ function SlideShow(){
 }
 
 export default SlideShow
-
