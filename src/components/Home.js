@@ -8,7 +8,7 @@ import Profile from './Profile';
 import { Route, Link } from 'react-router-dom';
 import Signup from './Signup';
 import Login from './Login';
-import Slideshow from './Slideshow';
+
 
 const doctorData = [
 	{
@@ -78,10 +78,7 @@ function Home() {
 
 			<main>
 
-				<Slideshow/>
-				<div className='spacer'>
-					<p className='search-banner'>Search for a vet in your area</p>
-				</div>
+				
 
 				<Route
 					path='/'
