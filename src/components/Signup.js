@@ -19,7 +19,7 @@ function Signup() {
 								<Form.Label>Email address</Form.Label>
 								<Form.Control type='text' placeholder='Enter email' />
 							</Form.Group>
-							<Form.Group controlId='formBasicEmail'>
+							<Form.Group controlId='formBasicName'>
 								<Form.Label>User Name</Form.Label>
 								<Form.Control type='text' placeholder='User name' />
 							</Form.Group>
@@ -28,7 +28,7 @@ function Signup() {
 								<Form.Label>Password</Form.Label>
 								<Form.Control type='password' placeholder='Password' />
 							</Form.Group>
-							<Button variant='primary' type='submit'>
+							<Button variant='primary' type='submit' className='signup-button'>
 								Sign Up
 							</Button>
 						</Form>

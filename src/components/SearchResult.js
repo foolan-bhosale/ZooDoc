@@ -1,29 +1,45 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {ListGroup, Card, CardDeck} from 'react-bootstrap';
+import '../App.css';
 
 function SearchResult(props) {
-  console.log(props)
-if (!props.filteredDoctors.length) {
-	return <h2>No doctors Found!</h2>;
-}
-  return (
-    <>
-    <p>Search Result</p>
-    <div>
-      {props.filteredDoctors.map((doctor) => {
-        return (
-					<div>
+	console.log(props);
+	if (!props.filteredDoctors.length) {
+		return <h2>No doctors Found!</h2>;
+	}
+	return (
+		<div>
+			<p className='search-result'>Search Result in {props.searchString}</p>
+			{props.filteredDoctors.map((doctor) => {
+				return (
+					<div className='result-container'>
+						{/* <ListGroup variant='flush'>
 						<Link to={`/doctor/${doctor.name}`}>
-							<h1>{doctor.name}</h1>
+							<ListGroup.Item variant='light' className='secondary'>
+								{doctor.name} ({doctor.specialization})
+							</ListGroup.Item>
 						</Link>
-						<p>{doctor.specialties}</p>
+					</ListGroup> */}
+						<CardDeck className='show-doctors'>
+							<Card>
+								<Card.Img variant='top' src='https://i.imgur.com/RIb6iFj.jpg' className='card-image'/>
+								<Card.Body>
+									<Card.Title>{doctor.name}</Card.Title>
+									<Card.Text>{doctor.about}</Card.Text>
+								</Card.Body>
+								<Card.Footer>
+									<Link to={`/doctor/${doctor.name}`}>
+										<button>view</button>
+									</Link>
+								</Card.Footer>
+							</Card>
+						</CardDeck>
 					</div>
 				);
-      })}
-      
-    </div>
-    </>
-  )
+			})}
+		</div>
+	);
 }
 
-export default SearchResult
+export default SearchResult;

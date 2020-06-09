@@ -17,6 +17,7 @@ function Search(props) {
 								type='text'
 								name='searchString'
 								required
+								autoComplete='off'
 								onChange={props.onChange}
 								value={props.searchString}
 							/>
@@ -39,7 +40,9 @@ function Search(props) {
 					</Form>
 				</div>
 			</div>
-			<Slideshow />
+			<div className='slideshow'>
+				<Slideshow />
+			</div>
 			<div className='spacer'>
 				<p className='search-banner'>Search for a vet in your area</p>
 			</div>

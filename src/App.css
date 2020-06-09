@@ -1,20 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Tera&display=swap');
 
-* {
-	padding: 0px;
-}
-
 body {
 	/* background-color: #ede7e3; */
-	background: #33468fa5;
+	background: #2849cc8e;
+	max-width: 1000px;
+	margin: auto;
+	height: 100%;
 }
 
 nav {
-	background: #1900f500;
-	padding: 15px 15px;
+	background: #2849cc00;
+	padding: 15px;
 	display: flex;
 	justify-content: space-between;
 	text-decoration: none;
+}
+
+nav a,
+nav a:active,
+nav a:visited {
+	color: white;
+	font-weight: bolder;
+	margin: 5px;
 }
 
 .zoodoc {
@@ -22,46 +29,17 @@ nav {
 	font-family: 'Lexend Tera', sans-serif;
 	font-size: 2.75rem;
 	font-weight: bolder;
+	color: white;
+	width: 150%;
 }
-
 .community {
+	margin-top: -10px;
+}
+.subtitle {
 	margin: 0px;
 	font-weight: bolder;
-}
-
-.links a {
-	background-color: rgba(255, 255, 255, 0.178);
-	border: 1px solid white;
-	margin: 10px;
-	color: #ede7e3;
-	padding: 10px;
-}
-
-nav a:visited {
-	text-decoration: none;
-	color: white;
-}
-
-.links a:hover {
-	color: #2c3836;
-	border: 1px solid #2c3836;
-}
-
-.title {
-	display: inline;
-	color: #1d2524;
-	text-align: left;
-}
-
-.spacer {
-	text-align: center;
-	margin: 15px;
-}
-
-.search-banner {
-	color: white;
-	text-emphasis: bolder;
-	font-size: 2em;
+	display: inline-block;
+	width: 150%;
 }
 
 .search-container {
@@ -69,38 +47,75 @@ nav a:visited {
 	/* border: 1px solid black; */
 	background-color: #e1e1e100;
 	display: flex;
-	width: 50%;
-	margin-top: 200px;
-	margin-left: 380px;
-	position: absolute;
-	z-index: 10;
+	margin: auto;
+	/* width: 50%; */
+	max-width: 100%;
+	/* margin-top: 200px; */
+	/* margin-left: 380px; */
+	/* position: absolute; */
+	/* z-index: 10; */
 }
 
 .search {
 	padding: 15px;
-	width: 75%;
+	width: 100%;
 	text-align: left;
 	border: 0.5 px solid black;
 }
 
 .search-button {
 	padding: 8px;
+	width: 100%;
 	font-weight: bold;
 	color: white;
 	background-color: rgba(24, 143, 131, 0.831);
 	border-radius: 1.5em;
 }
 
-a,
-a:hover,
-a:focus,
-a:active {
-	text-decoration: none;
-}
-
 .carousel {
 	opacity: 0.8;
+	max-width: 1000px;
+	margin: auto;
 }
+
 .search-bar {
 	border-radius: 2em;
+}
+
+@media (max-width: 576px) {
+	.links {
+		text-align: right;
+		margin: 0;
+		width: 50%;
+	}
+}
+.review-container {
+	width: 50%;
+	margin: auto;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+.result-container {
+	text-align: center;
+	width: 50%;
+	margin: auto;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+.search-result {
+	text-align: center;
+}
+.card-image {
+	height: 200px;
+}
+.show-doctors {
+	padding: 10px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-gap: 3rem;
+	margin: 30px;
 }

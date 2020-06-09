@@ -27,7 +27,7 @@ function Login() {
 							<Form.Control type='password' placeholder='Password' />
 						</Form.Group>
 						<Link to='/profile'>
-							<Button variant='primary' type='submit'>
+							<Button variant='primary' type='submit' className='signin-button'>
 								Log in
 							</Button>
 						</Link>
