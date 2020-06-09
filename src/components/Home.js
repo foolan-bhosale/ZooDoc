@@ -73,14 +73,10 @@ function Home() {
 				</div>
 				<div className='links'>
 					<Link to='/signup'>
-						<Button className='signup-button' variant='primary'>
-							Sign Up
-						</Button>
+						Sign Up
 					</Link>
 					<Link to='/login'>
-						<Button className='signin-button' variant='primary'>
-							Log In
-						</Button>
+						Log In
 					</Link>
 				</div>
 			</nav>

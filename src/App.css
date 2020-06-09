@@ -16,46 +16,10 @@ nav {
 	text-decoration: none;
 }
 
-
-.signin-button{
-	border-radius: 25px;
-	background-color: rgba(24, 143, 131, 0.831);
+nav a, nav a:active, nav a:visited {
+	color: white;
 	font-weight: bolder;
-	border: 1px solid rgb(24, 143, 131, 0.831);
-}
-
-.signup-button{
-	border-radius: 25px;
-	margin: 10px;
-	background-color: rgba(24, 143, 131, 0.831);
-	font-weight: bolder;
-	border: 1px solid rgb(24, 143, 131, 0.831);
-}
-
-.signup-button:hover {
-	border-radius: 25px;
-	margin: 10px;
-	font-weight: bolder;
-	color: rgba(24, 143, 131, 0.831);
-	background-color: rgba(255, 255, 255, 0.26);
-	border: 1px solid rgb(24, 143, 131, 0.831);
-}
-
-.signin-button{
-	border-radius: 25px;
-	margin: 10px;
-	background-color: rgba(24, 143, 131, 0.831);
-	font-weight: bolder;
-	border: 1px solid rgb(24, 143, 131, 0.831);
-}
-
-.signin-button:hover {
-	border-radius: 25px;
-	margin: 10px;
-	font-weight: bolder;
-	color: rgba(24, 143, 131, 0.831);
-	background-color: rgba(255, 255, 255, 0.26);
-	border: 1px solid rgb(24, 143, 131, 0.831);
+	margin: 5px
 }
 
 .zoodoc {
@@ -104,33 +68,20 @@ nav {
 	border-radius: 1.5em;
 }
 
-a,
-a:hover,
-a:focus,
-a:active {
-	text-decoration: none;
-}
-
 .carousel {
 	opacity: 0.8;
 	max-width: 1000px;
 	margin: auto;
 }
+
 .search-bar {
 	border-radius: 2em;
 }
 
 @media (max-width: 576px) {
-	.signup-button{
-		border-radius: 25px;
-		margin: 10px;
-		/* background-color: rgba(24, 143, 131, 0.831); */
-		font-weight: bolder;
-		border: 1px solid rgb(24, 143, 131, 0.831);
-	}
-
 	.links {
 		text-align: right;
-		margin: 0
+		margin: 0;
+		width: 50%;
 	}
 }
