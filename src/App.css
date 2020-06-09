@@ -5,22 +5,24 @@ body {
 	background: #2849cc8e;
 	max-width: 1000px;
 	margin: auto;
-	height: 100%
+	height: 100%;
 }
 
 nav {
-	background: #2849cc15;
+	background: #2849cc00;
 	padding: 15px;
 	display: flex;
 	justify-content: space-between;
 	text-decoration: none;
 }
 
-nav a, nav a:active, nav a:visited {
+
+nav a,
+nav a:active,
+nav a:visited {
 	color: white;
 	font-weight: bolder;
-	margin: 5px
-}
+	margin: 5px;
 
 .zoodoc {
 	margin: 0px;
@@ -31,10 +33,14 @@ nav a, nav a:active, nav a:visited {
 	width: 150%;
 }
 
+.community {
+	margin-top: -10px;
+}
 .subtitle {
 	margin: 0px;
 	font-weight: bolder;
-	display:inline-block;
+	display: inline-block;
+
 	width: 150%;
 }
 
@@ -84,4 +90,35 @@ nav a, nav a:active, nav a:visited {
 		margin: 0;
 		width: 50%;
 	}
+}
+
+.review-container {
+	width: 50%;
+	margin: auto;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+.result-container {
+	text-align: center;
+	width: 50%;
+	margin: auto;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+.search-result {
+	text-align: center;
+}
+.card-image {
+	height: 200px;
+}
+.show-doctors {
+	padding: 10px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-gap: 3rem;
+	margin: 30px;
 }

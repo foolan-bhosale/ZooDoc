@@ -28,7 +28,9 @@ function Signup() {
 								<Form.Label>Password</Form.Label>
 								<Form.Control type='password' placeholder='Password' />
 							</Form.Group>
-							<Button className='signup-button' variant='primary' type='submit'>
+
+							<Button variant='primary' type='submit' className='signup-button'>
+
 								Sign Up
 							</Button>
 						</Form>
