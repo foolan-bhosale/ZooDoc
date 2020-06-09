@@ -3,9 +3,8 @@
 body {
 	/* background-color: #ede7e3; */
 	background: #2849cc8e;
-	/* max-width: 1000px; */
+	max-width: 1000px;
 	margin: auto;
-	/* background-image: url('./medical-background.png'); */
 	height: 100%
 }
 
@@ -17,25 +16,7 @@ nav {
 	text-decoration: none;
 }
 
-@media (max-width: 576px) {  
-	.signup-button {
-		border-radius: 25px;
-		background-color: rgba(24, 143, 131, 0.831);
-		font-weight: bolder;
-		border: 1px solid rgb(24, 143, 131, 0.831);
-		margin:0;
-		text-align: right;
-	}
-	.subtitle {
-		color: #1900f500;
-		display:none;
-	}
 
-	.links {
-		text-align: right;
-		margin: 0
-	}
-}
 .signin-button{
 	border-radius: 25px;
 	background-color: rgba(24, 143, 131, 0.831);
@@ -83,40 +64,14 @@ nav {
 	font-size: 2.75rem;
 	font-weight: bolder;
 	color: white;
+	width: 150%;
 }
 
 .subtitle {
 	margin: 0px;
 	font-weight: bolder;
 	display:inline-block;
-}
-
-/* .links a {
-	background-color: rgba(255, 255, 255, 0.178);
-	border: 1px solid white;
-	margin: 10px;
-	color: #ede7e3;
-	padding: 10px;
-} */
-
-/* nav a {
-	text-decoration: none;
-	color: white;
-}
-
-nav a:visited {
-	text-decoration: none;
-	color: white;
-} */
-
-/* .links a:hover {
-	color: #2c3836;
-	border: 1px solid #2c3836;
-} */
-
-.slideshow {
-	/* max-width: 1000px !important;
-	max-height: 500px !important; */
+	width: 150%;
 }
 
 .search-container {
@@ -156,9 +111,26 @@ a:active {
 	text-decoration: none;
 }
 
-/* .carousel {
+.carousel {
 	opacity: 0.8;
-} */
+	max-width: 1000px;
+	margin: auto;
+}
 .search-bar {
 	border-radius: 2em;
+}
+
+@media (max-width: 576px) {
+	.signup-button{
+		border-radius: 25px;
+		margin: 10px;
+		/* background-color: rgba(24, 143, 131, 0.831); */
+		font-weight: bolder;
+		border: 1px solid rgb(24, 143, 131, 0.831);
+	}
+
+	.links {
+		text-align: right;
+		margin: 0
+	}
 }
