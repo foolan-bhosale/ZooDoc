@@ -8,6 +8,7 @@ import Profile from './Profile';
 import { Route, Link } from 'react-router-dom';
 import Signup from './Signup';
 import Login from './Login';
+import { APIURL } from '../config';
 
 const doctorData = [
 	{
@@ -125,7 +126,7 @@ function Home() {
 					<Link to='/'>
 						<p className='zoodoc'>ZooDoc</p>
 					</Link>
-					<p className='community'>Find pet care in your community</p>
+					{/* <p className='community'>Find pet care in your community</p> */}
 				</div>
 				<div className='links'>
 					<Link to='/signup'>Sign up </Link>

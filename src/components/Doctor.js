@@ -61,15 +61,23 @@ function Doctor(props) {
 						{doctor.city}, {doctor.state} {doctor.zipCode}
 					</p>
 					<p>{doctor.phone}</p>
-					<h3 className='my-3'>Review:</h3>
-					<p>description: {doctor.description}</p>
-					<p>overall: {doctor.overallRating}</p>
-					<p>bedside: {doctor.bedSideRating}</p>
-					<p>wait time: {doctor.waitTime}</p>
-					<p>post created at: {doctor.createdTime}</p>
 					<Link to='/review'>
 						<button>write review</button>
 					</Link>
+				</div>
+				<div className='review'>
+					<Card style={{ width: '18rem' }}>
+						<Card.Body>
+							<Card.Title>Review:</Card.Title>
+							<Card.Text>description: {doctor.description}</Card.Text>
+							<Card.Text>overall: {doctor.overallRating}</Card.Text>
+							<Card.Text>bedside: {doctor.bedSideRating}</Card.Text>
+							<Card.Text>wait time: {doctor.waitTime}</Card.Text>
+							<Card.Text>post created at: {doctor.createdTime}</Card.Text>
+							<Card.Link href='#'>Edit</Card.Link>
+							<Card.Link href='#'>Delete</Card.Link>
+						</Card.Body>
+					</Card>
 				</div>
 			</div>
 		</div>

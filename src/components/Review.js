@@ -25,7 +25,7 @@ return (
 				</Form.Control>
 			</Form.Group>
 			<Form.Group controlId='exampleForm.ControlSelect1'>
-				Bed-side
+				Bedside Manner
 				<Form.Control as='select'>
 					<option>Choose your rating</option>
 					<option>1 star</option>
