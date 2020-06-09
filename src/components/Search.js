@@ -7,7 +7,7 @@ function Search(props) {
 	console.log(props);
 	return (
 		<>
-			<div classname='slideshow'>
+			<div className='slideshow'>
 				<Slideshow />
 			</div>
 			<div className='search-container'>
