@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Search from './Search';
 import SearchResult from './SearchResult';
 import Review from './Review';
@@ -8,6 +8,7 @@ import Profile from './Profile';
 import { Route, Link } from 'react-router-dom';
 import Signup from './Signup';
 import Login from './Login';
+import Button from 'react-bootstrap/Button'
 
 const doctorData = [
 	{
@@ -125,11 +126,15 @@ function Home() {
 					<Link to='/'>
 						<p className='zoodoc'>ZooDoc</p>
 					</Link>
-					<p className='community'>Find pet care in your community</p>
+					<p className='subtitle'>Find pet care in your community</p>
 				</div>
 				<div className='links'>
-					<Link to='/signup'>Sign up </Link>
-					<Link to='/login'> Log in</Link>
+					<Link to='/signup'>
+						Sign Up
+					</Link>
+					<Link to='/login'>
+						Log In
+					</Link>
 				</div>
 			</nav>
 
@@ -157,6 +162,7 @@ function Home() {
 								match={routerProps.match}
 								filteredDoctors={filteredDoctors}
 								searchString={searchString}
+
 							/>
 						);
 					}}
