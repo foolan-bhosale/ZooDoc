@@ -35,7 +35,7 @@ function ReviewList(props) {
 				<Row>
 					{filteredReview.map((review) => {
 						return (
-							<Col sm={true} className='mr-3'>
+							<Col sm={true} className='mr-3' key={review.id}>
 								<Card style={{ width: '18rem' }} className='text-center h-100'>
 									<Card.Body>
 										<Card.Title>Review:</Card.Title>

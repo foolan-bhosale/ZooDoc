@@ -5,7 +5,7 @@ import Review from './Review';
 import Doctor from './Doctor';
 import Confirmation from './Confirmation';
 import Profile from './Profile';
-import reviewList from './ReviewList'
+import reviewList from './ReviewList';
 import { Route, Link } from 'react-router-dom';
 import Signup from './Signup';
 import Login from './Login';
@@ -15,31 +15,30 @@ function Home() {
 	const [searchString, setSearchString] = useState('');
 	const [doctors, setDoctors] = useState([]);
 
-	// const filteredDoctors = doctorData.filter((doctor) =>
-	// 	doctor.city.toLowerCase().includes(searchString.toLowerCase())
-	// );
-	// console.log(filteredDoctors);
 	useEffect(() => {
 		getDoctors(searchString);
-	}, []);
+	}, [searchString]);
 
-	function getDoctors(searchString) {
-		const url = `${APIURL}/doctors/?search=${searchString}`;
-
+	function getDoctors(search) {
+		const url = `${APIURL}/doctors/?search=${search}`;
+		console.log(url);
 		fetch(url)
 			.then((response) => response.json())
 			.then((response) => {
 				console.log(response);
 				setDoctors(response);
-				setSearchString('')
+				// setSearchString('')
 			})
 			.catch(console.error);
 	}
-
+	const filteredDoctors = doctors.filter((doctor) =>
+		doctor.city.toLowerCase().includes(searchString.toLowerCase())
+	);
+	// console.log(filteredDoctors);
 
 	const onSubmit = (event) => {
 		event.preventDefault();
-		getDoctors(searchString)
+		getDoctors(searchString);
 		// filteredDoctors();
 	};
 	const onChange = (event) => {
@@ -82,7 +81,7 @@ function Home() {
 							<SearchResult
 								match={routerProps.match}
 								// filteredDoctors={filteredDoctors}
-								doctors={doctors}
+								doctors={filteredDoctors}
 								searchString={searchString}
 							/>
 						);

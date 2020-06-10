@@ -14,7 +14,7 @@ function SearchResult(props) {
 			<div className='result-container'>
 					{props.doctors.map((doctor) => {
 						return (
-							<CardDeck className='show-doctors'>
+							<CardDeck className='show-doctors' key={doctor.id}>
 								<Card className='text-center'>
 									<Card.Img
 										variant='top'
