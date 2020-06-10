@@ -9,22 +9,21 @@ function Search(props) {
 		<>
 			<div className='slideshow'>
 				<Slideshow />
-			</div>
-			<div className='search-container'>
-				<div className='search'>
-					<Form onSubmit={props.onSubmit}>
-						<Form.Group controlId='SearchByCity'>
-							<Form.Control
-								className='search-bar'
-								placeholder='Search by City'
-								type='text'
-								name='searchString'
-								required
-								autoComplete='off'
-								onChange={props.onChange}
-								value={props.searchString}
-							/>
-						</Form.Group>
+				<div className='search-container'>
+						<div className='search'>
+							<Form onSubmit={props.onSubmit}>
+								<Form.Group controlId='SearchByCity'>
+									<Form.Control
+										className='search-bar'
+										placeholder='Search by City'
+										type='text'
+										name='searchString'
+										required
+										autoComplete='off'
+										onChange={props.onChange}
+										value={props.searchString}
+									/>
+								</Form.Group>
 
 						<Form.Group controlId='exampleForm.ControlSelect1'>
 							<Form.Control as='select' className='search-bar'>
@@ -43,14 +42,7 @@ function Search(props) {
 					</Form>
 				</div>
 			</div>
-
-			<div className='slideshow'>
-				<Slideshow />
 			</div>
-			<div className='spacer'>
-				<p className='search-banner'>Search for a vet in your area</p>
-			</div>
-
 		</>
 	);
 }
