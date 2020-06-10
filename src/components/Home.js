@@ -5,116 +5,42 @@ import Review from './Review';
 import Doctor from './Doctor';
 import Confirmation from './Confirmation';
 import Profile from './Profile';
+import reviewList from './ReviewList'
 import { Route, Link } from 'react-router-dom';
 import Signup from './Signup';
 import Login from './Login';
 import { APIURL } from '../config';
 
-const doctorData = [
-	{
-		name: 'Tymoteusz Hopkins',
-		gender: 'Male',
-		specialization: ['General', 'Dental'],
-		imageUrl: 'https://i.imgur.com/RIb6iFj.jpg',
-		about: 'we provide good service for pets',
-		officeName: 'Tymoteusz Hopkins Office',
-		streetAddress: '12345 east bay',
-		city: 'Los Angeles',
-		state: 'CA',
-		zipCode: 10000,
-		phone: '212-337-5549',
-		description: 'good',
-		overallRating: '3 stars',
-		bedSideRating: '4 stars',
-		waitTime: '2 stars',
-		createdTime: 'June 8th, 2020',
-	},
-	{
-		name: 'Marley Mcnamara',
-		gender: 'Female',
-		specialization: ['General', 'Dental', 'Specialty'],
-		imageUrl: 'https://i.imgur.com/RIb6iFj.jpg',
-		about: 'we provide good service for pets',
-		officeName: 'Marley Mcnamara Office',
-		streetAddress: '12345 east bay',
-		city: 'New York',
-		state: 'NY',
-		zipCode: 10000,
-		phone: '212-337-5549',
-		description: 'good',
-		overallRating: '3 stars',
-		bedSideRating: '4 stars',
-		waitTime: '2 stars',
-		createdTime: 'June 8th, 2020',
-	},
-	{
-		name: 'Tyler-Jay Shea',
-		gender: 'Male',
-		specialization: ['General'],
-		imageUrl: 'https://i.imgur.com/RIb6iFj.jpg',
-		about: 'we provide good service for pets',
-		officeName: 'Tyler-Jay Shea Office',
-		streetAddress: '12345 east bay',
-		city: 'Washington, DC',
-		state: '',
-		zipCode: 10000,
-		phone: '212-337-5549',
-		description: 'good',
-		overallRating: '3 stars',
-		bedSideRating: '4 stars',
-		waitTime: '2 stars',
-		createdTime: 'June 8th, 2020',
-	},
-	{
-		name: 'Lester Gibbs',
-		gender: 'Male',
-		specialization: ['Specialty'],
-		imageUrl: 'https://i.imgur.com/RIb6iFj.jpg',
-		about: 'we provide good service for pets',
-		officeName: 'Lester Gibbs Office',
-		streetAddress: '12345 east bay',
-		city: 'Philadelphia',
-		state: 'PA',
-		zipCode: 10000,
-		phone: '212-337-5549',
-		description: 'good',
-		overallRating: '3 stars',
-		bedSideRating: '4 stars',
-		waitTime: '2 stars',
-		createdTime: 'June 8th, 2020',
-	},
-	{
-		name: 'Laith Dalton',
-		gender: 'Female',
-		specialization: ['General', 'Dental'],
-		imageUrl: 'https://i.imgur.com/RIb6iFj.jpg',
-		about: 'we provide good service for pets',
-		officeName: 'Laith Dalton Office',
-		streetAddress: '12345 east bay',
-		city: 'Los Angeles',
-		state: 'CA',
-		zipCode: 10000,
-		phone: '212-337-5549',
-		description: 'good',
-		overallRating: '3 stars',
-		bedSideRating: '4 stars',
-		waitTime: '2 stars',
-		createdTime: 'June 8th, 2020',
-	},
-];
-
 function Home() {
 	const [searchString, setSearchString] = useState('');
-	const [doctors, setDoctors] = useState('');
+	const [doctors, setDoctors] = useState([]);
 
-	const filteredDoctors = doctorData.filter((doctor) =>
-		doctor.city.toLowerCase().includes(searchString.toLowerCase())
-	);
+	// const filteredDoctors = doctorData.filter((doctor) =>
+	// 	doctor.city.toLowerCase().includes(searchString.toLowerCase())
+	// );
 	// console.log(filteredDoctors);
+	useEffect(() => {
+		getDoctors(searchString);
+	}, []);
+
+	function getDoctors(searchString) {
+		const url = `${APIURL}/doctors/?search=${searchString}`;
+
+		fetch(url)
+			.then((response) => response.json())
+			.then((response) => {
+				console.log(response);
+				setDoctors(response);
+				setSearchString('')
+			})
+			.catch(console.error);
+	}
+
 
 	const onSubmit = (event) => {
 		event.preventDefault();
-		filteredDoctors();
+		getDoctors(searchString)
+		// filteredDoctors();
 	};
 	const onChange = (event) => {
 		setSearchString(event.target.value);
@@ -152,11 +78,11 @@ function Home() {
 					path='/doctors/:city'
 					exact={true}
 					render={(routerProps) => {
-						console.log({ doctors });
 						return (
 							<SearchResult
 								match={routerProps.match}
-								filteredDoctors={filteredDoctors}
+								// filteredDoctors={filteredDoctors}
+								doctors={doctors}
 								searchString={searchString}
 							/>
 						);
@@ -164,14 +90,14 @@ function Home() {
 				/>
 
 				<Route
-					path='/doctor/:name'
+					path='/doctor/:id'
 					render={(routerProps) => {
 						// console.log(routerProps.match);
-						console.log({ doctors });
 						return (
 							<Doctor
 								match={routerProps.match}
-								filteredDoctors={filteredDoctors}
+								doctors={doctors}
+								// filteredDoctors={filteredDoctors}
 							/>
 						);
 					}}
@@ -183,7 +109,8 @@ function Home() {
 						return (
 							<Review
 								match={routerProps.match}
-								filteredDoctors={filteredDoctors}
+								doctors={doctors}
+								// filteredDoctors={filteredDoctors}
 							/>
 						);
 					}}
