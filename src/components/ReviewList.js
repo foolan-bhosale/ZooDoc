@@ -21,12 +21,14 @@ function ReviewList(props) {
 				setReviews(response);
 			})
 			.catch(console.error);
-  }, []);
+	}, []);
+	let filteredReview = reviews.filter((review) => review.doctor_id === props.doctorId);
+
   // if (!reviews) return null;
   console.log(reviews)
 	return (
-			<div className='review'>
-				{reviews.map((review) => {
+			<div className='review container'>
+				{filteredReview.map((review) => {
 					return (
 						<Card style={{ width: '18rem' }}>
 							<Card.Body>
