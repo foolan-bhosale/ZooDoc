@@ -99,13 +99,10 @@ nav a:visited {
 	right: 0;
 }
 .result-container {
-	text-align: center;
-	width: 50%;
-	margin: auto;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
+	 display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+grid-gap: 3rem;
+margin: 30px ;
 }
 .search-result {
 	text-align: center;
