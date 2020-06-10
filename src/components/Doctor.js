@@ -61,11 +61,11 @@ const Doctor = ({ match }) => {
 					<Link to='/review'>
 						<button>write review</button>
 					</Link>
-				<ReviewList doctorId={doctor.id}/>
 				</div>
 				
 			
 			</div>
+				<ReviewList doctorId={doctor.id}/>
 		</div>
 	);
 };

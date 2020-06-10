@@ -132,3 +132,8 @@ display: grid;
 	right: 0;
 	left: 0;
 }
+.single-review {
+	margin: 10px;
+	border-radius: 10px;
+	padding: 10px;
+}
