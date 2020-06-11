@@ -63,9 +63,8 @@ const Doctor = ({ match }) => {
 					</Link>
 				</div>
 				
-			
 			</div>
-				<ReviewList doctorId={doctor.id}/>
+				<ReviewList doctorId={doctor.id} doctorCity={doctor.city}/>
 		</div>
 	);
 };

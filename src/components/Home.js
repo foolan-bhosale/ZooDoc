@@ -5,7 +5,6 @@ import Review from './Review';
 import Doctor from './Doctor';
 import Confirmation from './Confirmation';
 import Profile from './Profile';
-import reviewList from './ReviewList';
 import { Route, Link } from 'react-router-dom';
 import Signup from './Signup';
 import Login from './Login';
@@ -16,11 +15,11 @@ function Home() {
 	const [doctors, setDoctors] = useState([]);
 
 	useEffect(() => {
-		getDoctors(searchString);
-	}, [searchString]);
+		getDoctors();
+	}, []);
 
-	function getDoctors(search) {
-		const url = `${APIURL}/doctors/?search=${search}`;
+	function getDoctors() {
+		const url = `${APIURL}/doctors/`;
 		console.log(url);
 		fetch(url)
 			.then((response) => response.json())
@@ -49,9 +48,9 @@ function Home() {
 			<nav>
 				<div className='title'>
 					<Link to='/'>
-						<p className='zoodoc'>ZooDoc</p>
+						<img src='https://i.imgur.com/2nYKt0o.png' alt='logo' className='logo-image'/>
+						{/* <p className='zoodoc'>ZooDoc</p> */}
 					</Link>
-					{/* <p className='community'>Find pet care in your community</p> */}
 				</div>
 				<div className='links'>
 					<Link to='/signup'>Sign up </Link>

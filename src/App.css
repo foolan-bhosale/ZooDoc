@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Tera&display=swap');
 
 body {
-	/* background-color: #ede7e3; */
+	background-color: #ede7e3;
 	background: #2849cc8e;
-	max-width: 1200px;
+	/* max-width: 1200px; */
 	margin: auto;
 	height: 100%;
 }
@@ -14,6 +14,8 @@ nav {
 	display: flex;
 	justify-content: space-between;
 	text-decoration: none;
+	max-height: 80px;
+	padding-bottom: 30px;
 }
 
 nav a,
@@ -30,7 +32,9 @@ nav a:visited {
 	font-size: 2.75rem;
 	font-weight: bolder;
 	color: white;
-	width: 150%;
+	width: 100%;
+	position: absolute;
+	top: 0;
 }
 .community {
 	margin-top: -10px;
@@ -59,7 +63,7 @@ nav a:visited {
 .search {
 	padding: 15px;
 	width: 100%;
-	text-align: left;
+	text-align: center;
 	border: 0.5 px solid black;
 }
 
@@ -73,14 +77,14 @@ nav a:visited {
 }
 
 .carousel {
-	opacity: 0.8;
-	max-width: 1200px;
+	opacity: 0.75;
+	/* max-width: 1200px; */
 	margin: auto;
 }
 .search-bar {
 	border-radius: 2em;
-	width: 50%;
-	
+
+	text-align: center;
 }
 
 @media (max-width: 576px) {
@@ -99,10 +103,10 @@ nav a:visited {
 	right: 0;
 }
 .result-container {
-	 display: grid;
-grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-grid-gap: 3rem;
-margin: 30px ;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-gap: 3rem;
+	margin: 30px;
 }
 .search-result {
 	text-align: center;
@@ -118,7 +122,7 @@ margin: 30px ;
 	margin: 30px;
 }
 .review {
-display: grid;
+	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 	grid-gap: 1rem;
 	margin: 2rem;
@@ -133,4 +137,24 @@ display: grid;
 	margin: 10px;
 	border-radius: 10px;
 	padding: 10px;
+}
+.search-form {
+	width: 600px;
+}
+.carousel-image {
+	height: 800px;
+	max-width: 100%;
+}
+.slideshow {
+	overflow: hidden;
+}
+
+.img-fluid {
+	width: 500px;
+}
+.review-card{
+	background-color: rgba(230, 222, 222, 0.694);
+}
+.logo-image {
+width:250px;
 }

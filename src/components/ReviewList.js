@@ -9,26 +9,43 @@ import {
 	CardDeck,
 	Row,
 	Col,
-	Container
+	Container,
 } from 'react-bootstrap';
-
+import { Link, Redirect } from 'react-router-dom';
 function ReviewList(props) {
 	console.log(props);
 	const [reviews, setReviews] = useState([]);
+	const [deleted, setDeleted] = useState(false);
 	useEffect(() => {
 		const url = `${APIURL}/reviews`;
 		fetch(url)
 			.then((response) => response.json())
 			.then((response) => {
-        console.log(response)
+				console.log(response);
 				setReviews(response);
 			})
 			.catch(console.error);
 	}, []);
-	let filteredReview = reviews.filter((review) => review.doctor_id === props.doctorId);
+	let filteredReview = reviews.filter(
+		(review) => review.doctor_id === props.doctorId
+	);
 
-  // if (!reviews) return null;
-  console.log(reviews)
+	const deleteComment = (event) => {
+		console.log(event.target.id);
+		const url = `${APIURL}/reviews/${event.target.value}`;
+		fetch(url, { method: 'DELETE' })
+			.then((res) => {
+				console.log(res);
+				setDeleted(true);
+			})
+			.catch(console.error);
+	};
+	if (deleted) {
+		return <Redirect to={`/doctors/${props.doctorCity}`} />;
+		// {`/doctor/${props.doctorId}`}
+	}
+	// if (!reviews) return null;
+	console.log(reviews);
 	return (
 		<div>
 			<Container className='container-fluid d-flex justify-content-center '>
@@ -36,7 +53,7 @@ function ReviewList(props) {
 					{filteredReview.map((review) => {
 						return (
 							<Col sm={true} className='mr-3' key={review.id}>
-								<Card style={{ width: '18rem' }} className='text-center h-100'>
+								<Card style={{ width: '18rem' }} className='text-center h-100 review-card'>
 									<Card.Body>
 										<Card.Title>Review:</Card.Title>
 										<Card.Text>Posted by: {review.name}</Card.Text>
@@ -45,8 +62,10 @@ function ReviewList(props) {
 										<Card.Text>bedside: {review.bed_side_rating}</Card.Text>
 										<Card.Text>wait time: {review.wait_time_rating}</Card.Text>
 										<Card.Text>post created at: {review.created_at}</Card.Text>
-										<Card.Link href='#'>Edit</Card.Link>
-										<Card.Link href='#'>Delete</Card.Link>
+										<Card.Link>Edit</Card.Link>
+										<Card.Link onClick={deleteComment}>
+											<button value={review.id}>Delete</button>
+										</Card.Link>
 									</Card.Body>
 								</Card>
 							</Col>
@@ -55,6 +74,7 @@ function ReviewList(props) {
 				</Row>
 			</Container>
 		</div>
+		
 	);
 }
 export default ReviewList;
