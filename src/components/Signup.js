@@ -1,11 +1,49 @@
 import React, { useState } from 'react';
-
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal'
+import Modal from 'react-bootstrap/Modal';
+import { APIURL } from '../config';
+import { Link, Redirect } from 'react-router-dom';
 
 function Signup() {
+const initialSignUp = {
+	email: '',
+	name: '',
+	password: ''
+}
+const [signUp, setSignUp] = useState(initialSignUp);
+const [posted, setPosted] = useState(false);
+const [error, setError] = useState(false);
 
+const handleChange = event => {
+	event.persist();
+	setSignUp({
+		...signUp,
+		[event.target.name]: event.target.value
+	});
+};
+const handleSubmit = event => {
+	event.preventDefault();
+	const url = `${APIURL}/api/register`;
+
+	fetch(url, {
+		method: 'POST',
+		headers: {
+			'Content-type': 'application/json; charset=UTF-8',
+		},
+		body: JSON.stringify(signUp),
+	})
+	.then(response => response.json())
+	.then(response => {
+setPosted(true)
+	})
+	.catch(()=> {
+		setError(true);
+	})
+}
+if (posted) {
+	return <Redirect to='/' />
+}
   	return (
 			<div className='signup-container'>
 				<Modal.Dialog>
@@ -14,19 +52,37 @@ function Signup() {
 					</Modal.Header>
 
 					<Modal.Body>
-						<Form className='signup'>
+						<Form className='signup' onSubmit={handleSubmit}>
 							<Form.Group controlId='formBasicEmail'>
 								<Form.Label>Email address</Form.Label>
-								<Form.Control type='text' placeholder='Enter email' />
+								<Form.Control
+									onChange={handleChange}
+									type='text'
+									placeholder='Enter email'
+									name='email'
+									value={signUp.email}
+								/>
 							</Form.Group>
 							<Form.Group controlId='formBasicName'>
 								<Form.Label>User Name</Form.Label>
-								<Form.Control type='text' placeholder='User name' />
+								<Form.Control
+									onChange={handleChange}
+									type='text'
+									placeholder='User name'
+									name='name'
+									value={signUp.name}
+								/>
 							</Form.Group>
 
 							<Form.Group controlId='formBasicPassword'>
 								<Form.Label>Password</Form.Label>
-								<Form.Control type='password' placeholder='Password' />
+								<Form.Control
+									onChange={handleChange}
+									type='password'
+									placeholder='Password'
+									name='password'
+									value={signUp.password}
+								/>
 							</Form.Group>
 							<Button variant='primary' type='submit' className='signup-button'>
 								Sign Up
