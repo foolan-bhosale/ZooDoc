@@ -8,8 +8,8 @@ import { Link, Redirect } from 'react-router-dom';
 function Signup() {
 const initialSignUp = {
 	email: '',
-	name: '',
-	password: ''
+	username: '',
+	password: '',
 }
 const [signUp, setSignUp] = useState(initialSignUp);
 const [posted, setPosted] = useState(false);
@@ -19,12 +19,12 @@ const handleChange = event => {
 	event.persist();
 	setSignUp({
 		...signUp,
-		[event.target.name]: event.target.value
+		[event.target.name]: event.target.value,
 	});
 };
 const handleSubmit = event => {
 	event.preventDefault();
-	const url = `${APIURL}/api/register`;
+	const url = `${APIURL}/api/users/register`;
 
 	fetch(url, {
 		method: 'POST',
@@ -35,15 +35,16 @@ const handleSubmit = event => {
 	})
 	.then(response => response.json())
 	.then(response => {
+		console.log(response)
 setPosted(true)
 	})
 	.catch(()=> {
 		setError(true);
 	})
 }
-if (posted) {
-	return <Redirect to='/' />
-}
+// if (posted) {
+// 	return <Redirect to='/login' />
+// }
   	return (
 			<div className='signup-container'>
 				<Modal.Dialog>
@@ -69,8 +70,8 @@ if (posted) {
 									onChange={handleChange}
 									type='text'
 									placeholder='User name'
-									name='name'
-									value={signUp.name}
+									name='username'
+									value={signUp.username}
 								/>
 							</Form.Group>
 

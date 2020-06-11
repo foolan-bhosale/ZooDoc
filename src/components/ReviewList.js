@@ -32,7 +32,7 @@ function ReviewList(props) {
 
 	const deleteComment = (event) => {
 		console.log(event.target.id);
-		const url = `${APIURL}/reviews/${event.target.value}`;
+		const url = `${APIURL}/reviews/${event.target.id}`;
 		fetch(url, { method: 'DELETE' })
 			.then((res) => {
 				console.log(res);
@@ -41,7 +41,7 @@ function ReviewList(props) {
 			.catch(console.error);
 	};
 	if (deleted) {
-		return <Redirect to={`/doctors/${props.doctorCity}`} />;
+		return <Redirect to={`/doctor/${props.doctorId}`} />;
 		// {`/doctor/${props.doctorId}`}
 	}
 
@@ -55,7 +55,9 @@ function ReviewList(props) {
 					{filteredReview.map((review) => {
 						return (
 							<Col sm={true} className='mr-3' key={review.id}>
-								<Card style={{ width: '18rem' }} className='text-center h-100 review-card'>
+								<Card
+									style={{ width: '18rem' }}
+									className='text-center h-100 review-card'>
 									<Card.Body>
 										<Card.Title>Review:</Card.Title>
 										<Card.Text>Posted by: {review.name}</Card.Text>
@@ -64,9 +66,11 @@ function ReviewList(props) {
 										<Card.Text>bedside: {review.bed_side_rating}</Card.Text>
 										<Card.Text>wait time: {review.wait_time_rating}</Card.Text>
 										<Card.Text>post created at: {review.created_at}</Card.Text>
-										<Card.Link>Edit</Card.Link>
+										<Card.Link>
+											<button id={review.id}>Edit</button>
+										</Card.Link>
 										<Card.Link onClick={deleteComment}>
-											<button value={review.id}>Delete</button>
+											<button id={review.id}>Delete</button>
 										</Card.Link>
 									</Card.Body>
 								</Card>
