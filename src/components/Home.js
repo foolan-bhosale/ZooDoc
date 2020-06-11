@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Search from './Search';
 import SearchResult from './SearchResult';
-import Review from './Review';
+import WriteReview from './WriteReview';
 import Doctor from './Doctor';
 import Confirmation from './Confirmation';
 import Profile from './Profile';
@@ -24,7 +24,7 @@ function Home() {
 		fetch(url)
 			.then((response) => response.json())
 			.then((response) => {
-				console.log(response);
+				// console.log(response);
 				setDoctors(response);
 				// setSearchString('')
 			})
@@ -105,7 +105,7 @@ function Home() {
 					path='/review/:name'
 					render={(routerProps) => {
 						return (
-							<Review
+							<WriteReview
 								match={routerProps.match}
 								doctors={doctors}
 								// filteredDoctors={filteredDoctors}
@@ -117,7 +117,7 @@ function Home() {
 				<Route path='/login' component={Login} />
 				<Route path='/confirmation' component={Confirmation} />
 				<Route path='/profile' component={Profile} />
-				<Route path='/review' component={Review} />
+				<Route path='/review' component={WriteReview} />
 			</main>
 		</>
 	);

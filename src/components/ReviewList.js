@@ -44,6 +44,8 @@ function ReviewList(props) {
 		return <Redirect to={`/doctors/${props.doctorCity}`} />;
 		// {`/doctor/${props.doctorId}`}
 	}
+
+	
 	// if (!reviews) return null;
 	console.log(reviews);
 	return (
