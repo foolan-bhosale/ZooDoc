@@ -1,1 +1,1 @@
-export const APIURL = 'https://zoodoctor.herokuapp.com';
+export const APIURL = 'https://zoodocapi.herokuapp.com';

@@ -26,7 +26,6 @@ function WriteReview() {
 		})
 	}
 
-
 	const handleSubmit = (event) => {
 		console.log(review)
 		event.preventDefault()
