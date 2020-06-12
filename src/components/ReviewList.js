@@ -56,11 +56,11 @@ function ReviewList(props) {
 	console.log(reviews);
 	return (
 		<div>
-			<Container className='container-fluid d-flex justify-content-center '>
+			<Container className='doctor-review-container'>
 				<Row>
 					{filteredReview.map((review) => {
 						return (
-							<Col  className='m-3 col-md-3  col-sm-10' key={review.id}>
+							<Col key={review.id}>
 								<Card
 									style={{ width: '18rem' }}
 									className='text-center h-100 review-card '>
