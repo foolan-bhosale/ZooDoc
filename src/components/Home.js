@@ -11,9 +11,12 @@ import Login from './Login';
 import { APIURL } from '../config';
 
 function Home() {
+	const getToken = localStorage.getItem('token');
 	const [searchString, setSearchString] = useState('');
 	const [doctors, setDoctors] = useState([]);
-	const [token, setToken] = useState('');
+	const [token, setToken] = useState(getToken);
+
+
 	useEffect(() => {
 		getDoctors();
 	}, []);

@@ -23,7 +23,7 @@ function Login(props) {
 	};
 	const handleLogin = (event) => {
 		event.preventDefault();
-		const url = `${APIURL}/api/users/login/`;
+		const url = `${APIURL}/api/token/`;
 
 		fetch(url, {
 			method: 'POST',
@@ -34,8 +34,9 @@ function Login(props) {
 		})
 			.then((response) => response.json())
 			.then((response) => {
-				console.log(response.token);
-				props.setToken(response.token);
+				console.log(response);
+				localStorage.setItem('token',response.access );
+				props.setToken(response.access);
 				setPosted(true);
 			})
 			.catch(() => {

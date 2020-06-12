@@ -37,7 +37,7 @@ function ReviewList(props) {
 			method: 'DELETE',
 			headers: {
 				'Content-Type': 'application/json; charset=UTF-8',
-				'Authorization': `JWT ${props.userToken}`,
+				'Authorization': `Bearer ${props.userToken}`,
 			},
 		})
 			.then((res) => {

@@ -34,14 +34,14 @@ const Doctor = ({ match, userToken }) => {
 	return (
 		<div className='container justify-content-center align-items-center position-absolute'>
 			<h1 className='my-4'>
-				{doctor.first_name} {doctor.last_name} {doctor.id}
+				{doctor.first_name} {doctor.last_name} 
 			</h1>
 			{/* <ul>
 				{doctor.specialization.map((special, index) => {
 					return <li key={index}>{special}</li>;
 				})}
 			</ul> */}
-			<h3>{doctor.specialization}</h3>
+			{/* <h3>{doctor.specialization}</h3> */}
 			<div className='row'>
 				<div className='col-md-8'>
 					<img className='img-fluid' src={doctor.image_url} alt='' />
