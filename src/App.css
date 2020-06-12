@@ -47,13 +47,19 @@ nav a:visited {
 	display: inline-block;
 	width: 150%;
 }
-.signup-button {
+.sign-button {
 	border-radius: 4rem;
 	background-color: rgba(94, 71, 71, 0.125);
-	color:white;
+	color: white;
 	font-weight: bolder;
 	font-size: 25px;
-	border:none
+	border: none;
+}
+
+@media (max-width: 576px) {
+	.signup-button {
+		font-size: 15px;
+	}
 }
 .findvet {
 	color: white;
@@ -89,7 +95,7 @@ nav a:visited {
 	color: white;
 	background-color: rgba(24, 143, 131, 0.831);
 	border-radius: 1.5em;
-	border:none;
+	border: none;
 }
 
 .carousel {
@@ -101,9 +107,6 @@ nav a:visited {
 	border-radius: 2em;
 
 	text-align: center;
-}
-.link {
-	font-size: 20px;
 }
 @media (max-width: 576px) {
 	.links {
@@ -158,7 +161,7 @@ nav a:visited {
 }
 .search-form {
 	width: 600px;
-	padding-right:50px; 
+	padding-right: 50px;
 }
 .slideshow {
 	overflow: hidden;
@@ -168,10 +171,11 @@ nav a:visited {
 .img-fluid {
 	width: 500px;
 }
-.review-card{
+.review-card {
 	background-color: rgba(230, 222, 222, 0.694);
 }
 .logo-image {
+
 width:250px;
 }
 
@@ -203,4 +207,3 @@ width:250px;
 	padding:0px;
 	margin:0px
 }
-                                                            

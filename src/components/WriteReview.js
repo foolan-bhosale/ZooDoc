@@ -6,17 +6,19 @@ import {Redirect} from 'react-router'
 
 function WriteReview(props) {
 	const initialReviewData = {
-		username: '',
+		// doctor_id: '',
+		name: '',
 		description: '',
-		overallExperience: '',
-		bedsideManner: '',
-		waitTime: '',
-		date: Date.now
-	}
+		overall_rating: '',
+		bed_side_rating: '',
+		wait_time_rating: '',
+		// date: Date.now
+	};
 
 	const [review, setReview] = useState(initialReviewData)
 	const [createdId, setCreatedId] = useState(null)
 	const [error, setError] = useState(false)
+	const [posted, setPosted] = useState(false)
 
 	const handleChange = event => {
 		event.persist()
@@ -33,23 +35,26 @@ function WriteReview(props) {
 		fetch(url, {
 			method: 'POST',
 			headers: {
-				'Content-type': 'application/json; charset=UTF-8',
-				
+				'Content-Type': 'application/json; charset=UTF-8',
+				'Authorization': `Bearer ${props.userToken}`,
 			},
 			body: JSON.stringify(review),
 		})
 			.then((response) => response.json())
-			.then((data) => {
-				setCreatedId(data.id);
+			.then((response) => {
+				console.log(response)
+				setPosted(true);
 			})
 			.catch(() => {
 				setError(true);
 			});
 	}
 	
-	if(createdId){
-		return <Redirect to={`/reviews/${createdId}`}/>
+	if (posted) {
+		return <Redirect to={`/doctors/${props.doctorCity}`} />;
+		// {`/doctor/${props.doctorId}`}
 	}
+
 
 	return (
 		<div className='review-container'>
@@ -60,8 +65,8 @@ function WriteReview(props) {
 						type='text'
 						placeholder='type your name'
 						onChange={handleChange}
-						name='username'
-						value={review.username}
+						name='name'
+						value={review.name}
 					/>
 				</Form.Group>
 
@@ -80,14 +85,14 @@ function WriteReview(props) {
 					<Form.Control
 						as='select'
 						onChange={handleChange}
-						name='overallExperience'
-						value={review.overallExperience}>
+						name='overall_rating'
+						value={review.overall_rating}>
 						<option>Choose your rating</option>
-						<option>1 star</option>
-						<option>2 stars</option>
-						<option>3 stars</option>
-						<option>4 stars</option>
-						<option>5 stars</option>
+						<option value='1'>1 star</option>
+						<option value='2'>2 stars</option>
+						<option value='3'>3 stars</option>
+						<option value='4'>4 stars</option>
+						<option value='5'>5 stars</option>
 					</Form.Control>
 				</Form.Group>
 				<Form.Group controlId='exampleForm.ControlSelect1'>
@@ -95,14 +100,14 @@ function WriteReview(props) {
 					<Form.Control
 						as='select'
 						onChange={handleChange}
-						name='bedsideManner'
-						value={review.bedsideManner}>
+						name='bed_side_rating'
+						value={review.bed_side_rating}>
 						<option>Choose your rating</option>
-						<option>1 star</option>
-						<option>2 stars</option>
-						<option>3 stars</option>
-						<option>4 stars</option>
-						<option>5 stars</option>
+						<option value='1'>1 star</option>
+						<option value='2'>2 stars</option>
+						<option value='3'>3 stars</option>
+						<option value='4'>4 stars</option>
+						<option value='5'>5 stars</option>
 					</Form.Control>
 				</Form.Group>
 				<Form.Group controlId='exampleForm.ControlSelect1'>
@@ -110,15 +115,25 @@ function WriteReview(props) {
 					<Form.Control
 						as='select'
 						onChange={handleChange}
-						name='waitTime'
-						value={review.waitTime}>
+						name='wait_time_rating'
+						value={review.wait_time_rating}>
 						<option>Choose your rating</option>
-						<option>1 star</option>
-						<option>2 stars</option>
-						<option>3 stars</option>
-						<option>4 stars</option>
-						<option>5 stars</option>
+						<option value='1'>1 star</option>
+						<option value='2'>2 stars</option>
+						<option value='3'>3 stars</option>
+						<option value='4'>4 stars</option>
+						<option value='5'>5 stars</option>
 					</Form.Control>
+				</Form.Group>
+				<Form.Group>
+					<Form.Label>Doctor ID</Form.Label>
+					<Form.Control
+						type='text'
+						placeholder='type your name'
+						onChange={handleChange}
+						name='doctor_id'
+						value={review.doctor_id}
+					/>
 				</Form.Group>
 				<Button variant='primary' type='submit'>
 					Submit

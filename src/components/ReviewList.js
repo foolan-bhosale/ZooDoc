@@ -31,14 +31,14 @@ function ReviewList(props) {
 	);
 
 	const deleteComment = (event) => {
-		console.log(event.target.id);
+		console.log(props.userToken);
 		const url = `${APIURL}/reviews/${event.target.id}`;
 		fetch(url, {
 			method: 'DELETE',
-			// headers: {
-			// 	// 'Content-Type': 'application/json; charset=UTF-8',
-			// 	Authorization: `Bearer ${props.userToken}`,
-			// },
+			headers: {
+				'Content-Type': 'application/json; charset=UTF-8',
+				'Authorization': `Bearer ${props.userToken}`,
+			},
 		})
 			.then((res) => {
 				console.log(res);
@@ -46,10 +46,10 @@ function ReviewList(props) {
 			})
 			.catch(console.error);
 	};
-	// if (deleted) {
-	// 	return <Redirect to={`/doctors/${props.doctorCity}`} />;
-	// 	// {`/doctor/${props.doctorId}`}
-	// }
+	if (deleted) {
+		return <Redirect to={`/doctors/${props.doctorCity}`} />;
+		// {`/doctor/${props.doctorId}`}
+	}
 
 	
 	// if (!reviews) return null;

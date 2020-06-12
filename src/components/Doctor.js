@@ -33,8 +33,10 @@ const Doctor = ({ match, userToken }) => {
 
 	return (
 		<div className='container justify-content-center align-items-center position-absolute'>
+
 			<h1 className='my-4 doctor-heading'>
 				{doctor.first_name} {doctor.last_name}
+
 			</h1>
 			{/* <ul>
 				{doctor.specialization.map((special, index) => {

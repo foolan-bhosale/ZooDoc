@@ -11,9 +11,12 @@ import Login from './Login';
 import { APIURL } from '../config';
 
 function Home() {
+	const getToken = localStorage.getItem('token');
 	const [searchString, setSearchString] = useState('');
 	const [doctors, setDoctors] = useState([]);
-	const [token, setToken] = useState('');
+	const [token, setToken] = useState(getToken);
+
+
 	useEffect(() => {
 		getDoctors();
 	}, []);
@@ -43,6 +46,10 @@ function Home() {
 	const onChange = (event) => {
 		setSearchString(event.target.value);
 	};
+	const signOut = (event) => {
+		event.preventDefault();
+		setToken('')
+	}
 	return (
 		<>
 			<nav>
@@ -53,14 +60,17 @@ function Home() {
 							alt='logo'
 							className='logo-image'
 						/>
-						{/* <p className='zoodoc'>ZooDoc</p> */}
 					</Link>
 				</div>
 				<div className='links'>
-					<Link to='/signup'>
-						<button className='signup-button'>Sign up</button>
+					{token? 
+						(<button onClick={signOut} className='sign-button'>Sign out</button>) :
+				(	<>
+				<Link to='/signup'>
+						<button className='sign-button'>Sign up</button>
 					</Link>
-					<Link to='/login'> Log in</Link>
+					<Link to='/login'> Log in</Link> </>)
+					}
 				</div>
 			</nav>
 
