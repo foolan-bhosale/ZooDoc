@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Tera&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
 body {
 	background-color: #ede7e3;
 	background: #2849cc8e;
@@ -173,5 +175,35 @@ nav a:visited {
 	background-color: rgba(230, 222, 222, 0.694);
 }
 .logo-image {
-	width: 250px;
+
+width:250px;
+}
+
+.doctor-review-container{
+	display: flex;
+	justify-content: space-around;
+	border: 1px solid black;
+	overflow: wrap;
+	height: 500px;
+}
+
+.doctor-heading{
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.doctor-about{
+	line-height: 1.5rem;
+	text-align: justify;
+}
+
+.doctor-office {
+	margin-top: 0px;
+	padding-top: 0px;
+}
+
+.contact-info{
+	line-height: 1.5rem;
+	padding:0px;
+	margin:0px
 }
