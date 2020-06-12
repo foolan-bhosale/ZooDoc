@@ -28,7 +28,7 @@ function Login(props) {
 		fetch(url, {
 			method: 'POST',
 			headers: {
-				'Content-type': 'application/json; charset=UTF-8',
+				'Content-Type': 'application/json; charset=UTF-8',
 			},
 			body: JSON.stringify(login),
 		})
