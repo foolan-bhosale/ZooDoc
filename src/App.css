@@ -3,7 +3,7 @@
 body {
 	background-color: #ede7e3;
 	background: #2849cc8e;
-	/* max-width: 1200px; */
+	/* max-width: 1300px; */
 	margin: auto;
 	height: 100%;
 }
@@ -23,10 +23,10 @@ nav a:active,
 nav a:visited {
 	color: white;
 	font-weight: bolder;
-	margin: 5px;
+	margin: 10px;
 }
 
-.zoodoc {
+/* .zoodoc {
 	margin: 0px;
 	font-family: 'Lexend Tera', sans-serif;
 	font-size: 2.75rem;
@@ -35,17 +35,30 @@ nav a:visited {
 	width: 100%;
 	position: absolute;
 	top: 0;
-}
-.community {
+} */
+/* .community {
 	margin-top: -10px;
-}
+} */
 .subtitle {
 	margin: 0px;
 	font-weight: bolder;
 	display: inline-block;
 	width: 150%;
 }
-
+.signup-button {
+	border-radius: 4rem;
+	background-color: rgba(94, 71, 71, 0.125);
+	color:white;
+	font-weight: bolder;
+	font-size: 25px;
+	border:none
+}
+.findvet {
+	color: white;
+	font-weight: 700;
+	font-style: italic;
+	text-shadow: 0 0.6rem 0.5rem rgb(36, 33, 33);
+}
 .search-container {
 	text-align: center;
 	/* border: 1px solid black; */
@@ -74,6 +87,7 @@ nav a:visited {
 	color: white;
 	background-color: rgba(24, 143, 131, 0.831);
 	border-radius: 1.5em;
+	border:none;
 }
 
 .carousel {
@@ -86,7 +100,9 @@ nav a:visited {
 
 	text-align: center;
 }
-
+.link {
+	font-size: 20px;
+}
 @media (max-width: 576px) {
 	.links {
 		text-align: right;
@@ -129,7 +145,7 @@ nav a:visited {
 }
 .carousel-overlay {
 	position: absolute;
-	bottom: 300px;
+	bottom: 175px;
 	right: 0;
 	left: 0;
 }
@@ -140,13 +156,11 @@ nav a:visited {
 }
 .search-form {
 	width: 600px;
-}
-.carousel-image {
-	height: 800px;
-	max-width: 100%;
+	padding-right:50px; 
 }
 .slideshow {
 	overflow: hidden;
+	padding-bottom: 30px;
 }
 
 .img-fluid {

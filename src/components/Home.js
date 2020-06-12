@@ -57,7 +57,9 @@ function Home() {
 					</Link>
 				</div>
 				<div className='links'>
-					<Link to='/signup'>Sign up </Link>
+					<Link to='/signup'>
+						<button className='signup-button'>Sign up</button>
+					</Link>
 					<Link to='/login'> Log in</Link>
 				</div>
 			</nav>

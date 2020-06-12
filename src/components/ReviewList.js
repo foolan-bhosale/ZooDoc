@@ -35,10 +35,10 @@ function ReviewList(props) {
 		const url = `${APIURL}/reviews/${event.target.id}`;
 		fetch(url, {
 			method: 'DELETE',
-			headers: {
-				'Content-Type': 'application/json; charset=UTF-8',
-				Authorization: `Bearer ${props.userToken}`,
-			},
+			// headers: {
+			// 	// 'Content-Type': 'application/json; charset=UTF-8',
+			// 	Authorization: `Bearer ${props.userToken}`,
+			// },
 		})
 			.then((res) => {
 				console.log(res);
@@ -60,10 +60,10 @@ function ReviewList(props) {
 				<Row>
 					{filteredReview.map((review) => {
 						return (
-							<Col sm={true} className='mr-3' key={review.id}>
+							<Col  className='m-3 col-md-3  col-sm-10' key={review.id}>
 								<Card
 									style={{ width: '18rem' }}
-									className='text-center h-100 review-card'>
+									className='text-center h-100 review-card '>
 									<Card.Body>
 										<Card.Title>Review:</Card.Title>
 										<Card.Text>Posted by: {review.name}</Card.Text>

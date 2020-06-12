@@ -2,33 +2,26 @@ import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 function SlideShow() {
 	return (
-		<div className='slideshow'>
+		<div className='slideshow '>
 			<Carousel className='carousel'>
-				{/* <Carousel.Item>
+				<Carousel.Item >
 					<img
-						className='d-flex w-100'
-						src={require('../imgs/header-us-mri-vet_05_lg.jpg')}
-						alt='Boxer Puppy'
-					/>
-				</Carousel.Item> */}
-				<Carousel.Item>
-					<img
-						className='d-flex w-100 carousel-image'
-						src={require('../imgs/iStock-529121920_lg.jpg')}
+						className='d-flex w-100 '
+						src={require('../imgs/1.jpg')}
 						alt='Husky Puppy'
 					/>
 				</Carousel.Item>
 				<Carousel.Item>
 					<img
-						className='d-flex w-100 carousel-image'
-						src={require('../imgs/vet-examing-boxer-puppy-555782789-596844295f9b582c3566433c_lg.jpg')}
+						className='d-flex w-100 '
+						src={require('../imgs/3.jpg')}
 						alt='Dog and Cat'
 					/>
 				</Carousel.Item>
 				<Carousel.Item>
 					<img
 						className='d-block w-100 '
-						src={require('../imgs/vet-sds._lg.jpeg')}
+						src={require('../imgs/2.jpg')}
 						alt='Dog and Cat'
 					/>
 				</Carousel.Item>

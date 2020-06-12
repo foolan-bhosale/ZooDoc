@@ -10,7 +10,8 @@ function Search(props) {
 			<div className='slideshow'>
 				<Slideshow />
 				<div className='container carousel-overlay text-center'>
-					<h2>Find vets in your community</h2>
+					<h2 className='findvet'>Find vets in your community</h2>
+
 					<div className='search-container'>
 						<div className='search row justify-content-center  ml-auto'>
 							<Form onSubmit={props.onSubmit} className='search-form'>
@@ -46,9 +47,9 @@ function Search(props) {
 					</div>
 				</div>
 			</div>
-			<div className='spacer'>
+			{/* <div className='spacer'>
 				<p className='search-banner'>Search for a vet in your area</p>
-			</div>
+			</div> */}
 		</>
 	);
 }
