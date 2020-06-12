@@ -22,7 +22,7 @@ const handleChange = event => {
 		[event.target.name]: event.target.value,
 	});
 };
-const handleSubmit = event => {
+const handleSignup = event => {
 	event.preventDefault();
 	const url = `${APIURL}/api/users/register`;
 
@@ -42,9 +42,9 @@ setPosted(true)
 		setError(true);
 	})
 }
-// if (posted) {
-// 	return <Redirect to='/login' />
-// }
+if (posted) {
+	return <Redirect to='/login' />
+}
   	return (
 			<div className='signup-container'>
 				<Modal.Dialog>
@@ -53,7 +53,7 @@ setPosted(true)
 					</Modal.Header>
 
 					<Modal.Body>
-						<Form className='signup' onSubmit={handleSubmit}>
+						<Form className='signup' onSubmit={handleSignup}>
 							<Form.Group controlId='formBasicEmail'>
 								<Form.Label>Email address</Form.Label>
 								<Form.Control

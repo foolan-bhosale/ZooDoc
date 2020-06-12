@@ -17,7 +17,7 @@ import { APIURL } from '../config';
 // 			doctor = doctors[i];
 // 		}
 // 	}
-const Doctor = ({ match }) => {
+const Doctor = ({ match, userToken }) => {
 	const [doctor, setDoctor] = useState({});
 	const [error, setError] = useState(false);
 
@@ -64,7 +64,7 @@ const Doctor = ({ match }) => {
 				</div>
 				
 			</div>
-				<ReviewList doctorId={doctor.id} doctorCity={doctor.city}/>
+				<ReviewList doctorId={doctor.id} doctorCity={doctor.city} userToken={userToken}/>
 		</div>
 	);
 };

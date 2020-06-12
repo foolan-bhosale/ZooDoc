@@ -33,7 +33,12 @@ function ReviewList(props) {
 	const deleteComment = (event) => {
 		console.log(event.target.id);
 		const url = `${APIURL}/reviews/${event.target.id}`;
-		fetch(url, { method: 'DELETE' })
+		fetch(url, {
+			method: 'DELETE',
+			headers: {
+				Authorization: `Bearer ${props.userToken}`,
+			},
+		})
 			.then((res) => {
 				console.log(res);
 				setDeleted(true);

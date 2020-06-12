@@ -4,7 +4,7 @@ import { APIURL } from '../config';
 import {useState} from 'react'
 import {Redirect} from 'react-router'
 
-function WriteReview() {
+function WriteReview(props) {
 	const initialReviewData = {
 		username: '',
 		description: '',
@@ -34,16 +34,17 @@ function WriteReview() {
 			method: 'POST',
 			headers: {
 				'Content-type': 'application/json; charset=UTF-8',
+				
 			},
 			body: JSON.stringify(review),
 		})
-		.then(response => response.json())
-		.then(data => {
-			setCreatedId(data.id)
-		})
-		.catch(()=>{
-			setError(true)
-		})
+			.then((response) => response.json())
+			.then((data) => {
+				setCreatedId(data.id);
+			})
+			.catch(() => {
+				setError(true);
+			});
 	}
 	
 	if(createdId){

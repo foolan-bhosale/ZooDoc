@@ -13,7 +13,7 @@ import { APIURL } from '../config';
 function Home() {
 	const [searchString, setSearchString] = useState('');
 	const [doctors, setDoctors] = useState([]);
-
+	const [token, setToken] = useState('');
 	useEffect(() => {
 		getDoctors();
 	}, []);
@@ -48,7 +48,11 @@ function Home() {
 			<nav>
 				<div className='title'>
 					<Link to='/'>
-						<img src='https://i.imgur.com/2nYKt0o.png' alt='logo' className='logo-image'/>
+						<img
+							src='https://i.imgur.com/2nYKt0o.png'
+							alt='logo'
+							className='logo-image'
+						/>
 						{/* <p className='zoodoc'>ZooDoc</p> */}
 					</Link>
 				</div>
@@ -95,13 +99,14 @@ function Home() {
 							<Doctor
 								match={routerProps.match}
 								doctors={doctors}
+								userToken={token}
 								// filteredDoctors={filteredDoctors}
 							/>
 						);
 					}}
 				/>
 
-				<Route
+				{/* <Route
 					path='/review/:name'
 					render={(routerProps) => {
 						return (
@@ -112,12 +117,25 @@ function Home() {
 							/>
 						);
 					}}
+				/> */}
+				<Route
+					path='/signup'
+					render={() => {
+						return <Signup userToken={token} />;
+					}}
 				/>
-				<Route path='/signup' component={Signup} />
-				<Route path='/login' component={Login} />
-				<Route path='/confirmation' component={Confirmation} />
-				<Route path='/profile' component={Profile} />
-				<Route path='/review' component={WriteReview} />
+				<Route
+					path='/login'
+					render={() => {
+						return <Login setToken={setToken} userToken={token} />;
+					}}
+				/>
+				<Route
+					path='/review'
+					render={() => {
+						return <WriteReview userToken={token} />;
+					}}
+				/>
 			</main>
 		</>
 	);
