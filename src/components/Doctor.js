@@ -33,38 +33,53 @@ const Doctor = ({ match, userToken }) => {
 
 	return (
 		<div className='container justify-content-center align-items-center position-absolute'>
-			<h1 className='my-4'>
-				{doctor.first_name} {doctor.last_name} {doctor.id}
+			<h1 className='my-4 doctor-heading'>
+				{doctor.first_name} {doctor.last_name}
 			</h1>
 			{/* <ul>
 				{doctor.specialization.map((special, index) => {
 					return <li key={index}>{special}</li>;
 				})}
 			</ul> */}
-			<h3>{doctor.specialization}</h3>
+			{/* <h3>{doctor.specialization}</h3> */}
 			<div className='row'>
-				<div className='col-md-8'>
-					<img className='img-fluid' src={doctor.image_url} alt='' />
+				<div className='col-md-6'>
+					<img
+						className='img-fluid'
+						src={doctor.image_url}
+						alt='doctor portrait'
+					/>
 				</div>
 				<div className='col-md-4'>
-					<h3 className='my-3'>{doctor.office_name}</h3>
-					<p>{doctor.about}</p>
-					<h3 className='my-3'>Contact Info:</h3>
-					<p>{doctor.street_address}</p>
-					<p>
-						{doctor.city}, {doctor.state} {doctor.zip_code}
-					</p>
-					<p>{doctor.phone_number}</p>
+					<h3 className='my-3 doctor-heading'>{doctor.office_name}</h3>
+					<p className='doctor-about'>{doctor.about}</p>
+					<h3 className='my-3 doctor-heading'>Contact Info:</h3>
+					<p className='doctor-office'>
+						{doctor.street_address}
+						<br />
+						{doctor.city}, &nbsp;
+						{doctor.state}
+						<br />
+						{doctor.zip_code}
+						<br />
+						{doctor.phone_number}
+						<br/>
 					<a href={doctor.website} target='_blank' rel='noopenner noreferrer'>
-						Please click here to visit their website
+						Website
 					</a>
-					<Link to='/review'>
-						<button>write review</button>
-					</Link>
+					</p>
+					<div>
+						<Link to='/review'>
+							<button>write review</button>
+						</Link>
+					</div>
 				</div>
-				
 			</div>
-				<ReviewList doctorId={doctor.id} doctorCity={doctor.city} userToken={userToken}/>
+			<ReviewList
+				doctorId={doctor.id}
+				doctorCity={doctor.city}
+				userToken={userToken}
+			/>
 		</div>
 	);
 };
