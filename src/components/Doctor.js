@@ -78,22 +78,21 @@ const Doctor = ({ match, userToken, reviewId, doctorID }) => {
 									</button>
 								</Link>
 							) : (
-								<Link className='review-button' to='/login'>
-									<button>write review</button>
+								<Link to='/login'>
+									<button className='review-button'>Review Dr. {doctor.last_name}</button>
 								</Link>
 							)}
 						</div>
 					</div>
-
 				</div>
-					<div>
-						<ReviewList
-							doctorId={doctor.id}
-							doctorCity={doctor.city}
-							userToken={userToken}
-							reviewId={reviewId}
-						/>
-					</div>
+				<div>
+					<ReviewList
+						doctorId={doctor.id}
+						doctorCity={doctor.city}
+						userToken={userToken}
+						reviewId={reviewId}
+					/>
+				</div>
 			</div>
 		</>
 	);

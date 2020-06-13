@@ -133,5 +133,6 @@ a:hover {
 	color: purple;
 }
 
-.single-card {
+.signin-container, .signup-container {
+	width:700px;
 }

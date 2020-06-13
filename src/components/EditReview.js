@@ -129,7 +129,7 @@ function EditReview({ reviewId, userToken, doctorID, props }) {
 				<Button variant='primary' type='submit'>
 					Submit
 				</Button>
-				<Link to={`/doctor/${props.doctorID}`} className='btn btn-link'>
+				<Link to={`/doctor/${review.doctor_id}`} className='btn btn-link'>
 					Cancel
 				</Link>
 			</Form>
