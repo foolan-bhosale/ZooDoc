@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ReviewList from './ReviewList'
+import '../components/Doctor.css'
 
 import { APIURL } from '../config';
 // function Doctor(props) {
@@ -32,11 +33,9 @@ const Doctor = ({ match, userToken }) => {
 	}, []);
 
 	return (
-		<div className='container justify-content-center align-items-center position-absolute'>
-
+		<div className='container position-absolute'>
 			<h1 className='my-4 doctor-heading'>
 				{doctor.first_name} {doctor.last_name}
-
 			</h1>
 			{/* <ul>
 				{doctor.specialization.map((special, index) => {
@@ -52,27 +51,25 @@ const Doctor = ({ match, userToken }) => {
 						alt='doctor portrait'
 					/>
 				</div>
-				<div className='col-md-4'>
+				<div className='col-md-6'>
 					<h3 className='my-3 doctor-heading'>{doctor.office_name}</h3>
 					<p className='doctor-about'>{doctor.about}</p>
 					<h3 className='my-3 doctor-heading'>Contact Info:</h3>
 					<p className='doctor-office'>
-						{doctor.street_address}
-						<br />
+						{doctor.street_address} &nbsp;
 						{doctor.city}, &nbsp;
-						{doctor.state}
-						<br />
+						{doctor.state} &nbsp;
 						{doctor.zip_code}
 						<br />
 						{doctor.phone_number}
-						<br/>
-					<a href={doctor.website} target='_blank' rel='noopenner noreferrer'>
-						Website
-					</a>
+						<br />
+						<a href={doctor.website} target='_blank' rel='noopenner noreferrer'>
+							{doctor.office_name}
+						</a>
 					</p>
 					<div>
 						<Link to='/review'>
-							<button>write review</button>
+							<button className='review-button'>Review Dr. {doctor.last_name}</button>
 						</Link>
 					</div>
 				</div>

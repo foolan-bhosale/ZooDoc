@@ -9,6 +9,7 @@ import { Route, Link } from 'react-router-dom';
 import Signup from './Signup';
 import Login from './Login';
 import { APIURL } from '../config';
+import EditReview from './EditReview'
 
 function Home() {
 	const getToken = localStorage.getItem('token');
@@ -63,14 +64,18 @@ function Home() {
 					</Link>
 				</div>
 				<div className='links'>
-					{token? 
-						(<button onClick={signOut} className='sign-button'>Sign out</button>) :
-				(	<>
-				<Link to='/signup'>
-						<button className='sign-button'>Sign up</button>
-					</Link>
-					<Link to='/login'> Log in</Link> </>)
-					}
+					{token ? (
+						<button onClick={signOut} className='sign-button'>
+							Sign out
+						</button>
+					) : (
+						<>
+							<Link to='/signup'>
+								<button className='sign-button'>Sign up</button>
+							</Link>
+							<Link to='/login'> Log in</Link>{' '}
+						</>
+					)}
 				</div>
 			</nav>
 
@@ -146,6 +151,12 @@ function Home() {
 					path='/review'
 					render={() => {
 						return <WriteReview userToken={token} />;
+					}}
+				/>
+				<Route
+					path='/editreview'
+					render={() => {
+						return <EditReview userToken={token} />;
 					}}
 				/>
 			</main>

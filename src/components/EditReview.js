@@ -4,24 +4,38 @@ import { APIURL } from '../config';
 import { useState, useEffect } from 'react';
 import { Redirect } from 'react-router';
 
-function EditReview({ match, history }) {
+function EditReview({ match, history }, props) {
 	const [review, setReview] = useState({
-		username: '',
+		name: '',
 		description: '',
-		overallExperience: '',
-		bedsideManner: '',
-		waitTime: '',
-		date: Date.now,
+		overall_rating: '',
+		bed_side_rating: '',
+		wait_time_rating: '',
 	});
 
 	useEffect(() => {
-		fetch(`${APIURL}/reviews/${match.params.id}`)
+		console.log('useEffect')
+		fetch(`${APIURL}/reviews/8`, {
+			headers: {
+				// 'Content-Type': 'application/json',
+				'Authorization': `Bearer ${props.userToken}`,
+			},
+		})
 			.then((response) => response.json())
-			.then((response) => {
-				setReview(response);
+			.then((data) => {
+				setReview({
+					name: data.name,
+					description: data.description,
+					overall_rating: data.overall_rating,
+					bed_side_rating: data.bed_side_rating,
+					wait_time_rating: data.wait_time_rating,
+				});
 			})
+			.then((response) => console.log(response))
 			.catch(console.error);
-	}, [match.params.id]);
+	}, []);
+
+
 
 	const handleChange = (e) => {
 		setReview({ ...review, [e.target.name]: e.target.value });
@@ -34,6 +48,7 @@ function EditReview({ match, history }) {
 			body: JSON.stringify(review),
 			headers: {
 				'Content-Type': 'application/json',
+				'Authorization': `Bearer ${props.userToken}`,
 			},
 		})
 			.then((response) => {
@@ -101,9 +116,9 @@ return (
 				Wait Time
 				<Form.Control
 					as='select'
-					onChange={this.handleChange}
+					onChange={handleChange}
 					name='waitTime'
-					value={this.review.waitTime}>
+					value={review.waitTime}>
 					<option>Choose your rating</option>
 					<option>1 star</option>
 					<option>2 stars</option>

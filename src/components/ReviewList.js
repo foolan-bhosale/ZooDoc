@@ -73,7 +73,7 @@ function ReviewList(props) {
 										<Card.Text>wait time: {review.wait_time_rating}</Card.Text>
 										<Card.Text>post created at: {review.created_at}</Card.Text>
 										<Card.Link>
-											<button id={review.id}>Edit</button>
+											<Link to='/editreview'><button id={review.id}>Edit</button></Link>
 										</Card.Link>
 										<Card.Link onClick={deleteComment}>
 											<button id={review.id}>Delete</button>
