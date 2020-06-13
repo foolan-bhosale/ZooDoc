@@ -33,7 +33,8 @@ const Doctor = ({ match, userToken }) => {
 	}, []);
 
 	return (
-		<div className='container position-absolute'>
+		<>
+		<div className='container'>
 			<h1 className='my-4 doctor-heading'>
 				{doctor.first_name} {doctor.last_name}
 			</h1>
@@ -44,17 +45,18 @@ const Doctor = ({ match, userToken }) => {
 			</ul> */}
 			{/* <h3>{doctor.specialization}</h3> */}
 			<div className='row'>
-				<div className='col-md-6'>
+				<div className='col-md-6 col-12'>
 					<img
-						className='img-fluid'
+						className='img-thumbnail img-fluid'
 						src={doctor.image_url}
 						alt='doctor portrait'
 					/>
 				</div>
-				<div className='col-md-6'>
-					<h3 className='my-3 doctor-heading'>{doctor.office_name}</h3>
+				<div className='col-md-6 col-12'>
+					<h3 className='my-3 doctor-heading text-center'>{doctor.office_name}</h3>
 					<p className='doctor-about'>{doctor.about}</p>
-					<h3 className='my-3 doctor-heading'>Contact Info:</h3>
+					<section className='mt-3   text-center p-3'>
+					<h3 className='my-3 doctor-heading shadow'>Contact Info:</h3>
 					<p className='doctor-office'>
 						{doctor.street_address} &nbsp;
 						{doctor.city}, &nbsp;
@@ -63,10 +65,12 @@ const Doctor = ({ match, userToken }) => {
 						<br />
 						{doctor.phone_number}
 						<br />
-						<a href={doctor.website} target='_blank' rel='noopenner noreferrer'>
+						
+					</p>
+					<a href={doctor.website} target='_blank' rel='noopenner noreferrer'>
 							{doctor.office_name}
 						</a>
-					</p>
+					</section>
 					<div>
 						<Link to='/review'>
 							<button className='review-button'>Review Dr. {doctor.last_name}</button>
@@ -74,12 +78,17 @@ const Doctor = ({ match, userToken }) => {
 					</div>
 				</div>
 			</div>
+			
+			<div className='col-md-12  col-12  mt-5'>
 			<ReviewList
 				doctorId={doctor.id}
 				doctorCity={doctor.city}
 				userToken={userToken}
+				
 			/>
+			</div>
 		</div>
+		</>
 	);
 };
 export default Doctor;
