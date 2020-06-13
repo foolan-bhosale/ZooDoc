@@ -17,12 +17,15 @@ main{
 	grid-gap: 3rem;
 	margin: 30px;
 }
+
 .search-result {
 	text-align: center;
 }
+
 .card-image {
 	height: 200px;
 }
+
 .show-doctors {
 	padding: 10px;
 	display: grid;
@@ -30,27 +33,32 @@ main{
 	grid-gap: 3rem;
 	margin: 30px;
 }
+
 .review {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 	grid-gap: 1rem;
 	margin: 2rem;
 }
+
 .carousel-overlay {
 	position: absolute;
 	bottom: 175px;
 	right: 0;
 	left: 0;
 }
+
 .single-review {
 	margin: 10px;
 	border-radius: 10px;
 	padding: 10px;
 }
+
 .search-form {
 	width: 600px;
 	padding-right: 50px;
 }
+
 .slideshow {
 	overflow: hidden;
 	padding-bottom: 30px;
@@ -59,12 +67,13 @@ main{
 .img-fluid {
 	width: 500px;
 }
+
 .review-card {
 	background-color: rgba(230, 222, 222, 0.694);
 }
-.logo-image {
 
-width:250px;
+.logo-image {
+    width:250px;
 }
 
 .doctor-review-container{
