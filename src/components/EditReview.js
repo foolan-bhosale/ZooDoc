@@ -2,19 +2,17 @@ import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { APIURL } from '../config';
 import { useState, useEffect } from 'react';
-import { Redirect } from 'react-router';
-
-
-function EditReview({ reviewId, userToken, doctorID }) {
+import { Redirect, Link } from 'react-router-dom';
+function EditReview({ reviewId, userToken, doctorID, props }) {
 	const [review, setReview] = useState({
 		name: '',
 		description: '',
 		overall_rating: '',
 		bed_side_rating: '',
 		wait_time_rating: '',
+		// date: Date.now,
 	});
 	const [edited, setEdited] = useState(false);
-
 	useEffect(() => {
 		fetch(`${APIURL}/reviews/${reviewId}`, {
 			headers: {
@@ -23,23 +21,14 @@ function EditReview({ reviewId, userToken, doctorID }) {
 			},
 		})
 			.then((response) => response.json())
-			.then((data) => {
-				setReview({
-					name: data.name,
-					description: data.description,
-					overall_rating: data.overall_rating,
-					bed_side_rating: data.bed_side_rating,
-					wait_time_rating: data.wait_time_rating,
-				});
+			.then((response) => {
+				setReview(response);
 			})
-			.then((response) => console.log(response))
 			.catch(console.error);
 	}, [reviewId, userToken]);
-
 	const handleChange = (e) => {
 		setReview({ ...review, [e.target.name]: e.target.value });
 	};
-
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		fetch(`${APIURL}/reviews/${reviewId}`, {
@@ -72,7 +61,6 @@ function EditReview({ reviewId, userToken, doctorID }) {
 						value={review.name}
 					/>
 				</Form.Group>
-
 				<Form.Group>
 					<Form.Label>Describe your experience</Form.Label>
 					<Form.Control
@@ -128,7 +116,7 @@ function EditReview({ reviewId, userToken, doctorID }) {
 						<option value='5'>5 stars</option>
 					</Form.Control>
 				</Form.Group>
-				<Form.Group>
+				<Form.Group className='doctor-id'>
 					<Form.Label>Doctor ID</Form.Label>
 					<Form.Control
 						type='text'
@@ -141,6 +129,9 @@ function EditReview({ reviewId, userToken, doctorID }) {
 				<Button variant='primary' type='submit'>
 					Submit
 				</Button>
+				<Link to={`/doctor/${props.doctorID}`} className='btn btn-link'>
+					Cancel
+				</Link>
 			</Form>
 		</div>
 	);

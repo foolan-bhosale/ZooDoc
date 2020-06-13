@@ -53,7 +53,7 @@ const Doctor = ({ match, userToken, reviewId, doctorID }) => {
 						</h3>
 						<p className='doctor-about'>{doctor.about}</p>
 						<section className='mt-3   text-center p-3'>
-							<h3 className='my-3 doctor-heading shadow'>Contact Info:</h3>
+							<h3 className='my-3 doctor-heading '>Contact Info:</h3>
 							<p className='doctor-office'>
 								{doctor.street_address} &nbsp;
 								{doctor.city}, &nbsp;
@@ -85,7 +85,8 @@ const Doctor = ({ match, userToken, reviewId, doctorID }) => {
 						</div>
 					</div>
 
-					<div className='col-md-12  col-12  mt-5'>
+				</div>
+					<div>
 						<ReviewList
 							doctorId={doctor.id}
 							doctorCity={doctor.city}
@@ -93,7 +94,6 @@ const Doctor = ({ match, userToken, reviewId, doctorID }) => {
 							reviewId={reviewId}
 						/>
 					</div>
-				</div>
 			</div>
 		</>
 	);

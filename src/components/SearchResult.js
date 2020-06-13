@@ -29,7 +29,7 @@ function SearchResult(props) {
 									</Card.Body>
 									<Card.Footer>
 										<Link to={`/doctor/${doctor.id}`}>
-											<button>view</button>
+											<button>See Dr. {doctor.last_name}'s Information</button>
 										</Link>
 									</Card.Footer>
 								</Card>

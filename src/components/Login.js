@@ -47,7 +47,7 @@ function Login(props) {
 		return <Redirect to='/' />;
 	}
 	return (
-		<div>
+		<div className='signin-container'>
 			<Modal.Dialog>
 				<Modal.Header>
 					<Modal.Title>Log In</Modal.Title>

@@ -63,39 +63,57 @@ const handelEdit = (event) => {
 	console.log(reviews);
 	return (
 		<div>
-			<Container className='container-fluid d-flex justify-content-center '>
+			<Container className='container-fluid d-flex justify-content-center'>
 				<Row>
 					{filteredReview.map((review) => {
 						return (
-							<Col className='m-3 col-md-3  col-sm-10' key={review.id}>
+							<Col
+								sm={true}
+								className='col-lg-4 col-sm-12 col-md-6 mb-3'
+								key={review.id}>
 								<Card
 									style={{ width: '18rem' }}
 									className='text-center h-100 review-card '>
-									<Card.Body>
+									<Card.Body className='single-card'>
 										<Card.Title>Review:</Card.Title>
 										<Card.Text>Posted by: {review.name}</Card.Text>
-										<Card.Text>description: {review.description}</Card.Text>
-										<Card.Text>overall: {review.overall_rating}</Card.Text>
-										<Card.Text>bedside: {review.bed_side_rating}</Card.Text>
-										<Card.Text>wait time: {review.wait_time_rating}</Card.Text>
-										<Card.Text>post created at: {review.created_at}</Card.Text>
+										<Card.Text>Description: {review.description}</Card.Text>
+										<Card.Text>Overall: {review.overall_rating}</Card.Text>
+										<Card.Text>Bedside: {review.bed_side_rating}</Card.Text>
+										<Card.Text>Wait Time: {review.wait_time_rating}</Card.Text>
+										<Card.Text>
+											Created:{' '}
+											{new Intl.DateTimeFormat('en-US', {
+												year: 'numeric',
+												month: 'long',
+												day: '2-digit',
+											}).format(Date.parse(review.created_at))}
+										</Card.Text>
 										<Card.Link>
 											{props.userToken ? (
-												<Link to='/edit'>
-													<button id={review.id} onClick={handelEdit}>
-														Edit
-													</button>
+												<Link
+													to='/edit'
+													className='btn btn-primary'
+													id={review.id}
+													onClick={handelEdit}>
+													Edit
 												</Link>
 											) : (
-												<Link to='/login'>
-													<button id={review.id} onClick={handelEdit}>
-														Edit
-													</button>
+												<Link
+													to='/login'
+													className='btn btn-primary'
+													id={review.id}
+													onClick={handelEdit}>
+													Edit
 												</Link>
 											)}
 										</Card.Link>
-										<Card.Link onClick={deleteComment}>
-												<button id={review.id}>Delete</button>
+										<Card.Link
+											onClick={deleteComment}
+											id={review.id}
+											className='btn btn-warning'>
+											{' '}
+											Delete
 										</Card.Link>
 									</Card.Body>
 								</Card>
