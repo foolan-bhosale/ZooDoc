@@ -1,3 +1,8 @@
+main{
+    display:flex;
+    justify-content: center;
+}
+
 .review-container {
 	width: 50%;
 	margin: auto;

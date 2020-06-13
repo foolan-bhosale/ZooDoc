@@ -63,15 +63,15 @@ function ReviewList(props) {
 							<Col  lg={true}className='m-3 col-md-3  col-sm-10' key={review.id}>
 								<Card
 									style={{ width: '18rem' }}
-									className='text-center h-100 review-card '>
+									className=' h-100 review-card '>
 									<Card.Body>
 										<Card.Title>Review:</Card.Title>
 										<Card.Text>Posted by: {review.name}</Card.Text>
-										<Card.Text>description: {review.description}</Card.Text>
-										<Card.Text>overall: {review.overall_rating}</Card.Text>
-										<Card.Text>bedside: {review.bed_side_rating}</Card.Text>
-										<Card.Text>wait time: {review.wait_time_rating}</Card.Text>
-										<Card.Text>post created at: {review.created_at}</Card.Text>
+										<Card.Text>{review.description}</Card.Text>
+										<Card.Text>Overall Experience: {review.overall_rating}</Card.Text>
+										<Card.Text>Bedside Manner: {review.bed_side_rating}</Card.Text>
+										<Card.Text>Wait Time: {review.wait_time_rating}</Card.Text>
+										<Card.Text>Created:{review.created_at}</Card.Text>
 										<Card.Link>
 											<Link to='/editreview'><button id={review.id}>Edit</button></Link>
 										</Card.Link>
