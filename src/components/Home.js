@@ -8,6 +8,7 @@ import Profile from './Profile';
 import { Route, Link } from 'react-router-dom';
 import Signup from './Signup';
 import Login from './Login';
+import EditReview from './EditReview'
 import { APIURL } from '../config';
 
 function Home() {
@@ -15,7 +16,8 @@ function Home() {
 	const [searchString, setSearchString] = useState('');
 	const [doctors, setDoctors] = useState([]);
 	const [token, setToken] = useState(getToken);
-
+	const [reviewId, setReviewId] =useState('')
+const [doctorID, setDoctorID] = useState('')
 
 	useEffect(() => {
 		getDoctors();
@@ -63,14 +65,18 @@ function Home() {
 					</Link>
 				</div>
 				<div className='links'>
-					{token? 
-						(<button onClick={signOut} className='sign-button'>Sign out</button>) :
-				(	<>
-				<Link to='/signup'>
-						<button className='sign-button'>Sign up</button>
-					</Link>
-					<Link to='/login'> Log in</Link> </>)
-					}
+					{token ? (
+						<button onClick={signOut} className='sign-button'>
+							Sign out
+						</button>
+					) : (
+						<>
+							<Link to='/signup'>
+								<button className='sign-button'>Sign up</button>
+							</Link>
+							<Link to='/login'> Log in</Link>{' '}
+						</>
+					)}
 				</div>
 			</nav>
 
@@ -112,6 +118,8 @@ function Home() {
 								match={routerProps.match}
 								doctors={doctors}
 								userToken={token}
+								reviewId={setReviewId}
+								doctorID={setDoctorID}
 								// filteredDoctors={filteredDoctors}
 							/>
 						);
@@ -145,7 +153,13 @@ function Home() {
 				<Route
 					path='/review'
 					render={() => {
-						return <WriteReview userToken={token} />;
+						return <WriteReview userToken={token} doctorID={doctorID}/>;
+					}}
+				/>
+				<Route
+					path='/edit'
+					render={() => {
+						return <EditReview userToken={token} reviewId={reviewId} doctorID={doctorID}/>;
 					}}
 				/>
 			</main>

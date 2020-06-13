@@ -11,7 +11,8 @@ import {
 	Col,
 	Container,
 } from 'react-bootstrap';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, } from 'react-router-dom';
+
 function ReviewList(props) {
 	console.log(props);
 	const [reviews, setReviews] = useState([]);
@@ -29,7 +30,10 @@ function ReviewList(props) {
 	let filteredReview = reviews.filter(
 		(review) => review.doctor_id === props.doctorId
 	);
-
+	console.log(filteredReview)
+const handelEdit = (event) => {
+	props.reviewId(event.target.id)
+}
 	const deleteComment = (event) => {
 		console.log(props.userToken);
 		const url = `${APIURL}/reviews/${event.target.id}`;
@@ -43,6 +47,7 @@ function ReviewList(props) {
 			.then((res) => {
 				console.log(res);
 				setDeleted(true);
+				
 			})
 			.catch(console.error);
 	};
@@ -56,11 +61,11 @@ function ReviewList(props) {
 	console.log(reviews);
 	return (
 		<div>
-			<Container fluid className='container-fluid d-flex justify-content-center'>
+			<Container className='container-fluid d-flex justify-content-center '>
 				<Row>
 					{filteredReview.map((review) => {
 						return (
-							<Col  lg={true}className='m-3 col-md-3  col-sm-10' key={review.id}>
+							<Col className='m-3 col-md-3  col-sm-10' key={review.id}>
 								<Card
 									style={{ width: '18rem' }}
 									className='text-center h-100 review-card '>
@@ -73,7 +78,11 @@ function ReviewList(props) {
 										<Card.Text>wait time: {review.wait_time_rating}</Card.Text>
 										<Card.Text>post created at: {review.created_at}</Card.Text>
 										<Card.Link>
-											<button id={review.id}>Edit</button>
+											<Link to='/edit'>
+												<button id={review.id} onClick={handelEdit}>
+													Edit
+												</button>
+											</Link>
 										</Card.Link>
 										<Card.Link onClick={deleteComment}>
 											<button id={review.id}>Delete</button>
