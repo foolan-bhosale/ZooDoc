@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import ReviewList from './ReviewList'
-import '../components/Doctor.css'
+import ReviewList from './ReviewList';
+import '../components/Doctor.css';
 
 import { APIURL } from '../config';
 // function Doctor(props) {
@@ -28,59 +28,73 @@ const Doctor = ({ match, userToken, reviewId, doctorID }) => {
 			.then((response) => response.json())
 			.then((response) => {
 				setDoctor(response);
-				doctorID(response.id)
+				doctorID(response.id);
 			})
 			.catch(console.error);
-	}, []);
+	}, [doctorID, match.params.id]);
 
 	return (
 		<>
-		<div className='container'>
-			<h1 className='my-4 doctor-heading'>
-				{doctor.first_name} {doctor.last_name}
-			</h1>
-			<div className='row'>
-  			<div className='col-md-6 col-12'>
-					<h3 className='my-3 doctor-heading text-center'>{doctor.office_name}</h3>
-					<p className='doctor-about'>{doctor.about}</p>
-					<section className='mt-3   text-center p-3'>
-					<h3 className='my-3 doctor-heading shadow'>Contact Info:</h3>
-					<p className='doctor-office'>
-						{doctor.street_address} &nbsp;
-						{doctor.city}, &nbsp;
-						{doctor.state} &nbsp;
-						{doctor.zip_code}
-						<br />
-						{doctor.phone_number}
-						<br />
-						
-					</p>
-					<a href={doctor.website} target='_blank' rel='noopenner noreferrer'>
+			<div className='container'>
+				<h1 className='my-4 doctor-heading'>
+					{doctor.first_name} {doctor.last_name}
+				</h1>
+				<div className='row'>
+					<div className='col-md-6 col-12'>
+						<img
+							className='img-thumbnail img-fluid'
+							src={doctor.image_url}
+							alt='doctor portrait'
+						/>
+					</div>
+					<div className='col-md-6 col-12'>
+						<h3 className='my-3 doctor-heading text-center'>
 							{doctor.office_name}
-						</a>
-					</section>
-          <div>
-					{userToken ? (
-						<Link to='/review'>
-							<button className='review-button'>Review Dr. {doctor.last_name}</button>
-						</Link>
-					) : (
-						<Link to='/login'>
-							<button>write review</button>
-						</Link>
-					)}
+						</h3>
+						<p className='doctor-about'>{doctor.about}</p>
+						<section className='mt-3   text-center p-3'>
+							<h3 className='my-3 doctor-heading shadow'>Contact Info:</h3>
+							<p className='doctor-office'>
+								{doctor.street_address} &nbsp;
+								{doctor.city}, &nbsp;
+								{doctor.state} &nbsp;
+								{doctor.zip_code}
+								<br />
+								{doctor.phone_number}
+								<br />
+							</p>
+							<a
+								href={doctor.website}
+								target='_blank'
+								rel='noopenner noreferrer'>
+								{doctor.office_name}
+							</a>
+						</section>
+						<div>
+							{userToken ? (
+								<Link to='/review'>
+									<button className='review-button'>
+										Review Dr. {doctor.last_name}
+									</button>
+								</Link>
+							) : (
+								<Link to='/login'>
+									<button>write review</button>
+								</Link>
+							)}
+						</div>
+					</div>
+
+					<div className='col-md-12  col-12  mt-5'>
+						<ReviewList
+							doctorId={doctor.id}
+							doctorCity={doctor.city}
+							userToken={userToken}
+							reviewId={reviewId}
+						/>
+					</div>
 				</div>
 			</div>
-			
-			<div className='col-md-12  col-12  mt-5'>
-			<ReviewList
-				doctorId={doctor.id}
-				doctorCity={doctor.city}
-				userToken={userToken}
-				reviewId={reviewId}
-			/>
-			</div>
-		</div>
 		</>
 	);
 };

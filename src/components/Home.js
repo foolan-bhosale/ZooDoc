@@ -10,7 +10,7 @@ import Signup from './Signup';
 import Login from './Login';
 import EditReview from './EditReview';
 import { APIURL } from '../config';
-import EditReview from './EditReview'
+
 
 function Home() {
 	const getToken = localStorage.getItem('token');
