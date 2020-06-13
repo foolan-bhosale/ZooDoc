@@ -35,7 +35,7 @@ const Doctor = ({ match, userToken, reviewId, doctorID }) => {
 	return (
 		<div className='container justify-content-center align-items-center position-absolute'>
 			<h1 className='my-4'>
-				{doctor.first_name} {doctor.last_name} 
+				{doctor.first_name} {doctor.last_name}
 			</h1>
 			{/* <ul>
 				{doctor.specialization.map((special, index) => {
@@ -59,13 +59,23 @@ const Doctor = ({ match, userToken, reviewId, doctorID }) => {
 					<a href={doctor.website} target='_blank' rel='noopenner noreferrer'>
 						Please click here to visit their website
 					</a>
-					<Link to='/review'>
-						<button>write review</button>
-					</Link>
+					{userToken ? (
+						<Link to='/review'>
+							<button>write review</button>
+						</Link>
+					) : (
+						<Link to='/login'>
+							<button>write review</button>
+						</Link>
+					)}
 				</div>
-				
 			</div>
-				<ReviewList doctorId={doctor.id} doctorCity={doctor.city} userToken={userToken} reviewId={reviewId}/>
+			<ReviewList
+				doctorId={doctor.id}
+				doctorCity={doctor.city}
+				userToken={userToken}
+				reviewId={reviewId}
+			/>
 		</div>
 	);
 };

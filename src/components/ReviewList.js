@@ -35,9 +35,10 @@ const handelEdit = (event) => {
 	props.reviewId(event.target.id)
 }
 	const deleteComment = (event) => {
-		console.log(props.userToken);
+		// console.log(props.userToken);
 		const url = `${APIURL}/reviews/${event.target.id}`;
-		fetch(url, {
+		props.userToken?
+		(fetch(url, {
 			method: 'DELETE',
 			headers: {
 				'Content-Type': 'application/json; charset=UTF-8',
@@ -49,7 +50,7 @@ const handelEdit = (event) => {
 				setDeleted(true);
 				
 			})
-			.catch(console.error);
+			.catch(console.error)):(alert('You are not authorized'));
 	};
 	if (deleted) {
 		return <Redirect to={`/doctors/${props.doctorCity}`} />;
@@ -78,11 +79,19 @@ const handelEdit = (event) => {
 										<Card.Text>wait time: {review.wait_time_rating}</Card.Text>
 										<Card.Text>post created at: {review.created_at}</Card.Text>
 										<Card.Link>
-											<Link to='/edit'>
-												<button id={review.id} onClick={handelEdit}>
-													Edit
-												</button>
-											</Link>
+											{props.userToken ? (
+												<Link to='/edit'>
+													<button id={review.id} onClick={handelEdit}>
+														Edit
+													</button>
+												</Link>
+											) : (
+												<Link to='/login'>
+													<button id={review.id} onClick={handelEdit}>
+														Edit
+													</button>
+												</Link>
+											)}
 										</Card.Link>
 										<Card.Link onClick={deleteComment}>
 											<button id={review.id}>Delete</button>

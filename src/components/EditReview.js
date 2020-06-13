@@ -16,7 +16,7 @@ function EditReview({ reviewId, userToken, doctorID }) {
 	const [edited, setEdited] = useState(false);
 
 	useEffect(() => {
-		fetch(`${APIURL}/reviews/${reviewId}`,{
+		fetch(`${APIURL}/reviews/${reviewId}`, {
 			headers: {
 				'Content-Type': 'application/json; charset=UTF-8',
 				Authorization: `Bearer ${userToken}`,
@@ -27,7 +27,7 @@ function EditReview({ reviewId, userToken, doctorID }) {
 				setReview(response);
 			})
 			.catch(console.error);
-	}, [reviewId]);
+	}, [reviewId, userToken]);
 
 	const handleChange = (e) => {
 		setReview({ ...review, [e.target.name]: e.target.value });
@@ -44,14 +44,14 @@ function EditReview({ reviewId, userToken, doctorID }) {
 			},
 		})
 			.then((response) => {
-				console.log(response)
+				console.log(response);
 				setEdited(true);
 			})
 			.catch(console.error);
 	};
-if(edited) {
-	return <Redirect to={`/doctor/${doctorID}`} />;
-}
+	if (edited) {
+		return <Redirect to={`/doctor/${doctorID}`} />;
+	}
 	return (
 		<div className='review-container'>
 			<Form onSubmit={handleSubmit}>
