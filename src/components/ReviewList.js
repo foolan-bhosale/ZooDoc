@@ -53,7 +53,8 @@ const handelEdit = (event) => {
 			.catch(console.error)):(alert('You are not authorized'));
 	};
 	if (deleted) {
-		return <Redirect to={`/doctors/${props.doctorCity}`} />;
+		return <Redirect to='/' />;
+		// return <Redirect to={`/doctors/${props.doctorCity}`} />;
 		// {`/doctor/${props.doctorId}`}
 	}
 
@@ -94,7 +95,7 @@ const handelEdit = (event) => {
 											)}
 										</Card.Link>
 										<Card.Link onClick={deleteComment}>
-											<button id={review.id}>Delete</button>
+												<button id={review.id}>Delete</button>
 										</Card.Link>
 									</Card.Body>
 								</Card>

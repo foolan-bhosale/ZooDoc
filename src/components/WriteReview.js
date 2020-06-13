@@ -124,7 +124,7 @@ function WriteReview(props) {
 						<option value='5'>5 stars</option>
 					</Form.Control>
 				</Form.Group>
-				<Form.Group>
+				<Form.Group className='hide-doctorId'>
 					<Form.Label>Doctor ID</Form.Label>
 					<Form.Control
 						type='text'
