@@ -8,6 +8,7 @@ import Profile from './Profile';
 import { Route, Link } from 'react-router-dom';
 import Signup from './Signup';
 import Login from './Login';
+import EditReview from './EditReview';
 import { APIURL } from '../config';
 import EditReview from './EditReview'
 
@@ -16,7 +17,8 @@ function Home() {
 	const [searchString, setSearchString] = useState('');
 	const [doctors, setDoctors] = useState([]);
 	const [token, setToken] = useState(getToken);
-
+	const [reviewId, setReviewId] = useState('');
+	const [doctorID, setDoctorID] = useState('');
 
 	useEffect(() => {
 		getDoctors();
@@ -49,8 +51,8 @@ function Home() {
 	};
 	const signOut = (event) => {
 		event.preventDefault();
-		setToken('')
-	}
+		setToken('');
+	};
 	return (
 		<>
 			<nav>
@@ -117,6 +119,8 @@ function Home() {
 								match={routerProps.match}
 								doctors={doctors}
 								userToken={token}
+								reviewId={setReviewId}
+								doctorID={setDoctorID}
 								// filteredDoctors={filteredDoctors}
 							/>
 						);
@@ -147,10 +151,23 @@ function Home() {
 						return <Login setToken={setToken} userToken={token} />;
 					}}
 				/>
+
 				<Route
 					path='/review'
 					render={() => {
-						return <WriteReview userToken={token} />;
+						return <WriteReview userToken={token} doctorID={doctorID} />;
+					}}
+				/>
+				<Route
+					path='/edit'
+					render={() => {
+						return (
+							<EditReview
+								userToken={token}
+								reviewId={reviewId}
+								doctorID={doctorID}
+							/>
+						);
 					}}
 				/>
 				<Route

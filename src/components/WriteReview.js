@@ -1,8 +1,8 @@
 import React from 'react';
-import { Form, Button} from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap';
 import { APIURL } from '../config';
-import {useState} from 'react'
-import {Redirect} from 'react-router'
+import { useState } from 'react';
+import { Redirect } from 'react-router';
 
 function WriteReview(props) {
 	const initialReviewData = {
@@ -12,49 +12,48 @@ function WriteReview(props) {
 		overall_rating: '',
 		bed_side_rating: '',
 		wait_time_rating: '',
+		doctor_id: `${props.doctorID}`,
 		// date: Date.now
 	};
 
-	const [review, setReview] = useState(initialReviewData)
-	const [createdId, setCreatedId] = useState(null)
-	const [error, setError] = useState(false)
-	const [posted, setPosted] = useState(false)
+	const [review, setReview] = useState(initialReviewData);
+	const [createdId, setCreatedId] = useState(null);
+	const [error, setError] = useState(false);
+	const [posted, setPosted] = useState(false);
 
-	const handleChange = event => {
-		event.persist()
+	const handleChange = (event) => {
+		event.persist();
 		setReview({
 			...review,
-			[event.target.name]: event.target.value
-		})
-	}
+			[event.target.name]: event.target.value,
+		});
+	};
 
 	const handleSubmit = (event) => {
-		console.log(review)
-		event.preventDefault()
+		console.log(review);
+		event.preventDefault();
 		const url = `${APIURL}/reviews/`;
 		fetch(url, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json; charset=UTF-8',
-				'Authorization': `Bearer ${props.userToken}`,
+				Authorization: `Bearer ${props.userToken}`,
 			},
 			body: JSON.stringify(review),
 		})
 			.then((response) => response.json())
 			.then((response) => {
-				console.log(response)
+				console.log(response);
 				setPosted(true);
 			})
 			.catch(() => {
 				setError(true);
 			});
-	}
-	
-	if (posted) {
-		return <Redirect to={`/doctors/${props.doctorCity}`} />;
-		// {`/doctor/${props.doctorId}`}
-	}
+	};
 
+	if (posted) {
+		return <Redirect to={`/doctor/${props.doctorID}`} />;
+	}
 
 	return (
 		<div className='review-container'>
@@ -125,13 +124,13 @@ function WriteReview(props) {
 						<option value='5'>5 stars</option>
 					</Form.Control>
 				</Form.Group>
-				<Form.Group>
+				<Form.Group className='hide-doctorId'>
 					<Form.Label>Doctor ID</Form.Label>
 					<Form.Control
 						type='text'
-						placeholder='type your name'
 						onChange={handleChange}
 						name='doctor_id'
+						defaultValue={props.doctorId}
 						value={review.doctor_id}
 					/>
 				</Form.Group>
@@ -143,4 +142,4 @@ function WriteReview(props) {
 	);
 }
 
-export default WriteReview
+export default WriteReview;
