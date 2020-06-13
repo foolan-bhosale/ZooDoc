@@ -78,7 +78,7 @@ const Doctor = ({ match, userToken, reviewId, doctorID }) => {
 									</button>
 								</Link>
 							) : (
-								<Link to='/login'>
+								<Link className='review-button' to='/login'>
 									<button>write review</button>
 								</Link>
 							)}
