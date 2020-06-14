@@ -2,9 +2,8 @@ import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { APIURL } from '../config';
 import { useState, useEffect } from 'react';
-import { Redirect } from 'react-router';
-
-function EditReview({ reviewId, userToken, doctorID }) {
+import { Redirect, Link } from 'react-router-dom';
+function EditReview({ reviewId, userToken, doctorID, }) {
 	const [review, setReview] = useState({
 		name: '',
 		description: '',
@@ -14,7 +13,6 @@ function EditReview({ reviewId, userToken, doctorID }) {
 		// date: Date.now,
 	});
 	const [edited, setEdited] = useState(false);
-
 	useEffect(() => {
 		fetch(`${APIURL}/reviews/${reviewId}`, {
 			headers: {
@@ -24,15 +22,14 @@ function EditReview({ reviewId, userToken, doctorID }) {
 		})
 			.then((response) => response.json())
 			.then((response) => {
+				console.log(response)
 				setReview(response);
 			})
 			.catch(console.error);
 	}, [reviewId, userToken]);
-
 	const handleChange = (e) => {
 		setReview({ ...review, [e.target.name]: e.target.value });
 	};
-
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		fetch(`${APIURL}/reviews/${reviewId}`, {
@@ -65,7 +62,6 @@ function EditReview({ reviewId, userToken, doctorID }) {
 						value={review.name}
 					/>
 				</Form.Group>
-
 				<Form.Group>
 					<Form.Label>Describe your experience</Form.Label>
 					<Form.Control
@@ -121,7 +117,7 @@ function EditReview({ reviewId, userToken, doctorID }) {
 						<option value='5'>5 stars</option>
 					</Form.Control>
 				</Form.Group>
-				<Form.Group>
+				<Form.Group className='doctor-id'>
 					<Form.Label>Doctor ID</Form.Label>
 					<Form.Control
 						type='text'
@@ -134,6 +130,9 @@ function EditReview({ reviewId, userToken, doctorID }) {
 				<Button variant='primary' type='submit'>
 					Submit
 				</Button>
+				<Link to={`/doctor/${review.doctor_id}`} className='btn btn-link'>
+					Cancel
+				</Link>
 			</Form>
 		</div>
 	);

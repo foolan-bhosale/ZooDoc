@@ -5,7 +5,7 @@ import WriteReview from './WriteReview';
 import Doctor from './Doctor';
 import Confirmation from './Confirmation';
 import Profile from './Profile';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Redirect } from 'react-router-dom';
 import Signup from './Signup';
 import Login from './Login';
 import EditReview from './EditReview';
@@ -52,6 +52,7 @@ function Home() {
 		event.preventDefault();
 		setToken('');
 	};
+
 	return (
 		<>
 			<nav>
@@ -74,7 +75,9 @@ function Home() {
 							<Link to='/signup'>
 								<button className='sign-button'>Sign up</button>
 							</Link>
-							<Link to='/login'> Log in</Link>{' '}
+							<Link to='/login' className='login-button'>
+								Log in
+							</Link>
 						</>
 					)}
 				</div>
@@ -125,19 +128,6 @@ function Home() {
 						);
 					}}
 				/>
-
-				{/* <Route
-					path='/review/:name'
-					render={(routerProps) => {
-						return (
-							<WriteReview
-								match={routerProps.match}
-								doctors={doctors}
-								// filteredDoctors={filteredDoctors}
-							/>
-						);
-					}}
-				/> */}
 				<Route
 					path='/signup'
 					render={() => {

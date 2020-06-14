@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { APIURL } from '../config';
 import { useState } from 'react';
-import { Redirect } from 'react-router';
+import { Redirect, Link } from 'react-router-dom';
 
 function WriteReview(props) {
 	const initialReviewData = {
@@ -124,7 +124,7 @@ function WriteReview(props) {
 						<option value='5'>5 stars</option>
 					</Form.Control>
 				</Form.Group>
-				<Form.Group className='hide-doctorId'>
+				<Form.Group className='doctor-id'>
 					<Form.Label>Doctor ID</Form.Label>
 					<Form.Control
 						type='text'
@@ -137,6 +137,9 @@ function WriteReview(props) {
 				<Button variant='primary' type='submit'>
 					Submit
 				</Button>
+				<Link to={`/doctor/${props.doctorID}`} className='btn btn-link'>
+					Cancel
+				</Link>
 			</Form>
 		</div>
 	);
