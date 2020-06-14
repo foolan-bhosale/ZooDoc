@@ -110,7 +110,7 @@
 	padding: 8px;
 	width: 100%;
 	font-weight: bold;
-	text-shadow: 0 0.3rem 0.5rem rgb(36, 33, 33);
+	/* text-shadow: 0 0.3rem 0.5rem rgb(36, 33, 33); */
 	color: white;
 	background-color: rgba(24, 143, 131, 0.831);
 	border-radius: 1.5em;
