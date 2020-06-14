@@ -114,3 +114,10 @@ nav a:visited {
     border: none;
     /* text-shadow: 0 0.3rem 0.8rem rgb(36, 33, 33); */
 }
+.review-key {
+font-weight: 500;
+font-style: italic;
+}
+.review-header {
+    color: rgb(240, 237, 237);
+}

@@ -74,14 +74,29 @@ function ReviewList(props) {
 									style={{ width: '18rem' }}
 									className='text-center h-100 review-card '>
 									<Card.Body className='single-card'>
-										<Card.Title>Review:</Card.Title>
-										<Card.Text>Posted by: {review.name}</Card.Text>
-										<Card.Text>Description: {review.description}</Card.Text>
-										<Card.Text>Overall: {review.overall_rating}</Card.Text>
-										<Card.Text>Bedside: {review.bed_side_rating}</Card.Text>
-										<Card.Text>Wait Time: {review.wait_time_rating}</Card.Text>
+										<Card.Title className='review-header'>Review:</Card.Title>
 										<Card.Text>
-											Created:{' '}
+											<span className='review-key'>Posted by:</span>{' '}
+											{review.name}
+										</Card.Text>
+										<Card.Text>
+											<span className='review-key'>Description:</span>{' '}
+											{review.description}
+										</Card.Text>
+										<Card.Text>
+											<span className='review-key'>Overall:</span>{' '}
+											{review.overall_rating}
+										</Card.Text>
+										<Card.Text>
+											<span className='review-key'>Bedside:</span>{' '}
+											{review.bed_side_rating}
+										</Card.Text>
+										<Card.Text>
+											<span className='review-key'>Wait Time:</span>{' '}
+											{review.wait_time_rating}
+										</Card.Text>
+										<Card.Text>
+											<span className='review-key'>Created: </span>
 											{new Intl.DateTimeFormat('en-US', {
 												year: 'numeric',
 												month: 'long',
@@ -107,7 +122,7 @@ function ReviewList(props) {
 												</Link>
 											)}
 										</Card.Link>
-										<Card.Link >
+										<Card.Link>
 											<button
 												onClick={deleteComment}
 												id={review.id}
