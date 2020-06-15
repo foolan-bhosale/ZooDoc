@@ -12,6 +12,7 @@
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	grid-gap: 3rem;
 	margin: 30px;
+	margin-left: 2px;
 }
 
 .search-result {

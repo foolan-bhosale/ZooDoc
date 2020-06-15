@@ -22,7 +22,6 @@ function EditReview({ reviewId, userToken, doctorID, }) {
 		})
 			.then((response) => response.json())
 			.then((response) => {
-				console.log(response)
 				setReview(response);
 			})
 			.catch(console.error);
@@ -42,7 +41,6 @@ function EditReview({ reviewId, userToken, doctorID, }) {
 			},
 		})
 			.then((response) => {
-				console.log(response);
 				setEdited(true);
 			})
 			.catch(console.error);

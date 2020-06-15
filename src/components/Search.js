@@ -4,7 +4,6 @@ import Form from 'react-bootstrap/Form';
 import Slideshow from './Slideshow';
 
 function Search(props) {
-	console.log(props);
 	return (
 		<>
 			<div className='slideshow'>
@@ -28,15 +27,6 @@ function Search(props) {
 									/>
 								</Form.Group>
 
-								{/* <Form.Group controlId='exampleForm.ControlSelect1'>
-									<Form.Control as='select' className='search-bar'>
-										<option>Choose service type</option>
-										<option>General</option>
-										<option>Dental</option>
-										<option>Specialty</option>
-									</Form.Control>
-								</Form.Group> */}
-
 								<Link to={`/doctors/${props.searchString}`}>
 									<button type='submit' className='search-button search-bar'>
 										Search for a vet
@@ -47,9 +37,6 @@ function Search(props) {
 					</div>
 				</div>
 			</div>
-			{/* <div className='spacer'>
-				<p className='search-banner'>Search for a vet in your area</p>
-			</div> */}
 		</>
 	);
 }

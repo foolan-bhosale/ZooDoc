@@ -4,8 +4,6 @@ import { ListGroup, Card, CardDeck, Container } from 'react-bootstrap';
 import '../App.css';
 
 function SearchResult(props) {
-	console.log(props);
-
 	if (props.doctors.length === 0) {
 		return <h2>No doctors Found!</h2>;
 	}

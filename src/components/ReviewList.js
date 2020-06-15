@@ -23,7 +23,6 @@ function ReviewList(props) {
 		fetch(url)
 			.then((response) => response.json())
 			.then((response) => {
-				console.log(response);
 				setReviews(response);
 			})
 			.catch(console.error);
@@ -34,16 +33,14 @@ function ReviewList(props) {
 
 	let overallRating = 0;
 	let totalReviews = filteredReview.length;
-	console.log('totalReviews ', totalReviews);
+	// console.log('totalReviews ', totalReviews);
 	filteredReview.forEach((review) => {
 		overallRating = overallRating + parseInt(review.overall_rating);
-		console.log('overallRating ', overallRating);
+		// console.log('overallRating ', overallRating);
 	});
 	if (totalReviews > 0) {
 		overallRating = overallRating / totalReviews;
 	}
-
-	console.log(filteredReview);
 	const handelEdit = (event) => {
 		props.reviewId(event.target.id);
 	};
@@ -60,7 +57,6 @@ function ReviewList(props) {
 					},
 			  })
 					.then((res) => {
-						console.log(res);
 						setDeleted(true);
 					})
 					.catch(console.error)
@@ -73,7 +69,6 @@ function ReviewList(props) {
 	}
 
 	// if (!reviews) return null;
-	console.log(reviews);
 	return (
 		<div>
 			<div className='star-container'>

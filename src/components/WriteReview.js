@@ -30,7 +30,6 @@ function WriteReview(props) {
 	};
 
 	const handleSubmit = (event) => {
-		console.log(review);
 		event.preventDefault();
 		const url = `${APIURL}/reviews/`;
 		fetch(url, {
@@ -43,7 +42,6 @@ function WriteReview(props) {
 		})
 			.then((response) => response.json())
 			.then((response) => {
-				console.log(response);
 				setPosted(true);
 			})
 			.catch(() => {

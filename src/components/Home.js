@@ -25,25 +25,20 @@ function Home() {
 
 	function getDoctors() {
 		const url = `${APIURL}/doctors/`;
-		// console.log(url);
 		fetch(url)
 			.then((response) => response.json())
 			.then((response) => {
-				console.log(response);
 				setDoctors(response);
-				// setSearchString('')
 			})
 			.catch(console.error);
 	}
 	const filteredDoctors = doctors.filter((doctor) =>
 		doctor.city.toLowerCase().includes(searchString.toLowerCase())
 	);
-	// console.log(filteredDoctors);
 
 	const onSubmit = (event) => {
 		event.preventDefault();
 		getDoctors(searchString);
-		// filteredDoctors();
 	};
 	const onChange = (event) => {
 		setSearchString(event.target.value);
@@ -104,7 +99,6 @@ function Home() {
 						return (
 							<SearchResult
 								match={routerProps.match}
-								// filteredDoctors={filteredDoctors}
 								doctors={filteredDoctors}
 								searchString={searchString}
 							/>
@@ -115,7 +109,6 @@ function Home() {
 				<Route
 					path='/doctor/:id'
 					render={(routerProps) => {
-						// console.log(routerProps.match);
 						return (
 							<Doctor
 								match={routerProps.match}
@@ -123,7 +116,6 @@ function Home() {
 								userToken={token}
 								reviewId={setReviewId}
 								doctorID={setDoctorID}
-								// filteredDoctors={filteredDoctors}
 							/>
 						);
 					}}
