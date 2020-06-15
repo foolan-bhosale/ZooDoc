@@ -25,11 +25,11 @@ function Home() {
 
 	function getDoctors() {
 		const url = `${APIURL}/doctors/`;
-		console.log(url);
+		// console.log(url);
 		fetch(url)
 			.then((response) => response.json())
 			.then((response) => {
-				// console.log(response);
+				console.log(response);
 				setDoctors(response);
 				// setSearchString('')
 			})

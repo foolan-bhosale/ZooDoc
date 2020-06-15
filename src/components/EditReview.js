@@ -27,6 +27,7 @@ function EditReview({ reviewId, userToken, doctorID, }) {
 			})
 			.catch(console.error);
 	}, [reviewId, userToken]);
+	
 	const handleChange = (e) => {
 		setReview({ ...review, [e.target.name]: e.target.value });
 	};

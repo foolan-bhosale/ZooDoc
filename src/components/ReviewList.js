@@ -12,9 +12,10 @@ import {
 	Container,
 } from 'react-bootstrap';
 import { Link, Redirect } from 'react-router-dom';
+import StarRatingComponent from 'react-star-rating-component';
 
 function ReviewList(props) {
-	console.log(props);
+	// console.log(props);
 	const [reviews, setReviews] = useState([]);
 	const [deleted, setDeleted] = useState(false);
 	useEffect(() => {
@@ -30,10 +31,23 @@ function ReviewList(props) {
 	let filteredReview = reviews.filter(
 		(review) => review.doctor_id === props.doctorId
 	);
+
+	let overallRating = 0;
+	let totalReviews = filteredReview.length;
+	console.log('totalReviews ', totalReviews);
+	filteredReview.forEach((review) => {
+		overallRating = overallRating + parseInt(review.overall_rating);
+		console.log('overallRating ', overallRating);
+	});
+	if (totalReviews > 0) {
+		overallRating = overallRating / totalReviews;
+	}
+
 	console.log(filteredReview);
 	const handelEdit = (event) => {
 		props.reviewId(event.target.id);
 	};
+
 	const deleteComment = (event) => {
 		// console.log(props.userToken);
 		const url = `${APIURL}/reviews/${event.target.id}`;
@@ -62,6 +76,24 @@ function ReviewList(props) {
 	console.log(reviews);
 	return (
 		<div>
+			<div className='star-container'>
+				<h2 className='star-header'>Overall Rating:</h2>
+				{overallRating === 0 ? (
+					'Be the first one to review'
+				) : (
+					<StarRatingComponent
+						name='overallRating'
+						editing={false}
+						renderStarIcon={() => (
+							<span>
+								<i className='fa fa-star' />
+							</span>
+						)}
+						starCount={5}
+						value={overallRating}
+					/>
+				)}
+			</div>
 			<Container className='container-fluid d-flex justify-content-center'>
 				<Row>
 					{filteredReview.map((review) => {
