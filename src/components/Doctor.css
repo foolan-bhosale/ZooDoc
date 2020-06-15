@@ -62,11 +62,11 @@
 
 .img-fluid {
 	width: 380px;
- 
 }
 
 .review-card {
 	background-color: rgba(208, 205, 205, 0.194);
+
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
@@ -86,8 +86,10 @@
 .doctor-heading {
 	color: white;
 	font-family: 'Montserrat', sans-serif;
+
 		text-shadow: 0 0.3rem 0.5rem rgb(36, 33, 33);
 }
+
 .doctor-about {
 	line-height: 1.5rem;
 	text-align: justify;
@@ -110,11 +112,11 @@
 	padding: 8px;
 	width: 100%;
 	font-weight: bold;
-	/* text-shadow: 0 0.3rem 0.5rem rgb(36, 33, 33); */
-	color: white;
+  color: white;
 	background-color: rgba(24, 143, 131, 0.831);
 	border-radius: 1.5em;
 	border: 1px solid rgb(223, 222, 222);
+
 }
 
 a {
@@ -129,6 +131,11 @@ a:hover {
 	text-decoration: underline;
 	color: purple;
 }
+
 .doctor-image {
     padding-top:30px;
+
+.signin-container, .signup-container {
+	width:700px;
+
 }

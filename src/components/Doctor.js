@@ -36,6 +36,7 @@ const Doctor = ({ match, userToken, reviewId, doctorID }) => {
 	return (
 		<>
 			<div className='container'>
+
 				<h1 className='my-4 doctor-heading doctor-fullName'>
 					{doctor.first_name} {doctor.last_name}
 				</h1>
@@ -79,9 +80,11 @@ const Doctor = ({ match, userToken, reviewId, doctorID }) => {
 								</Link>
 							) : (
 								<Link to='/login'>
+
 									<button className='review-button'>
 										Review Dr. {doctor.last_name}
 									</button>
+
 								</Link>
 							)}
 						</div>

@@ -161,6 +161,7 @@ function ReviewList(props) {
 												className='btn delete'>
 												Delete
 											</button>
+
 										</Card.Link>
 									</Card.Body>
 								</Card>

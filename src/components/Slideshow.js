@@ -4,7 +4,7 @@ function SlideShow() {
 	return (
 		<div className='slideshow '>
 			<Carousel className='carousel'>
-				<Carousel.Item >
+				<Carousel.Item>
 					<img
 						className='d-flex w-100 '
 						src={require('../imgs/1.jpg')}

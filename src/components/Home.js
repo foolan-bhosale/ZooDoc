@@ -11,6 +11,7 @@ import Login from './Login';
 import EditReview from './EditReview';
 import { APIURL } from '../config';
 
+
 function Home() {
 	const getToken = localStorage.getItem('token');
 	const [searchString, setSearchString] = useState('');
@@ -157,6 +158,12 @@ function Home() {
 								doctorID={doctorID}
 							/>
 						);
+					}}
+				/>
+				<Route
+					path='/editreview'
+					render={() => {
+						return <EditReview userToken={token} />;
 					}}
 				/>
 			</main>

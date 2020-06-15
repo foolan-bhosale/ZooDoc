@@ -1,33 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Tera&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 body {
-	background-color: #ede7e3;
-	background: #2849cc8e;
-	/* max-width: 1300px; */
-	margin: auto;
-	height: 100%;
+    background-color: #ede7e3;
+    background: #2849cc8e;
+    /* max-width: 1300px; */
+    margin: auto;
+    height: 100%;
 }
 nav {
-	background: #2849cc00;
-	padding: 15px;
-	display: flex;
-	justify-content: space-between;
-	text-decoration: none;
-	max-height: 80px;
-	padding-bottom: 30px;
+    background: #2849cc00;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    max-height: 80px;
+    padding-bottom: 30px;
 }
 nav a,
 nav a:active,
 nav a:visited {
-	color: white;
-	font-weight: bolder;
-	margin: 10px;
+    color: white;
+    font-weight: bolder;
+    margin: 10px;
 }
+
 .subtitle {
-	margin: 0px;
-	font-weight: bolder;
-	display: inline-block;
-	width: 150%;
+    margin: 0px;
+    font-weight: bolder;
+    display: inline-block;
+    width: 150%;
 }
 .sign-button {
 	border-radius: 4rem;
@@ -37,6 +38,7 @@ nav a:visited {
 	font-size: 25px;
 	border: none;
 }
+
 @media (max-width: 600px) {
 	.sign-button {
 		font-size: 15px;
@@ -47,44 +49,49 @@ nav a:visited {
 }
 
 .findvet {
-	color: white;
-	font-weight: 700;
-	font-style: italic;
-	text-shadow: 0 0.6rem 0.5rem rgb(36, 33, 33);
+    color: white;
+    font-weight: 700;
+    font-style: italic;
+    text-shadow: 0 0.6rem 0.5rem rgb(36, 33, 33);
 }
+
 .search-container {
-	text-align: center;
-	/* border: 1px solid black; */
-	background-color: #e1e1e100;
-	display: flex;
-	margin: auto;
-	/* width: 50%; */
-	max-width: 100%;
-	/* margin-top: 200px; */
-	/* margin-left: 380px; */
-	/* position: absolute; */
-	/* z-index: 10; */
+    text-align: center;
+    /* border: 1px solid black; */
+    background-color: #e1e1e100;
+    display: flex;
+    margin: auto;
+    /* width: 50%; */
+    max-width: 100%;
+    /* margin-top: 200px; */
+    /* margin-left: 380px; */
+    /* position: absolute; */
+    /* z-index: 10; */
 }
+
 .search {
-	padding: 15px;
-	width: 100%;
-	text-align: center;
-	border: 0.5 px solid black;
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    border: 0.5 px solid black;
 }
+
 .search-button {
-	padding: 8px;
-	width: 100%;
-	font-weight: bold;
-	color: white;
-	background-color: rgba(24, 143, 131, 0.831);
-	border-radius: 1.5em;
-	border: none;
+    padding: 8px;
+    width: 100%;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(24, 143, 131, 0.831);
+    border-radius: 1.5em;
+    border: none;
 }
+
 .carousel {
-	opacity: 0.75;
-	/* max-width: 1200px; */
-	margin: auto;
+    opacity: 0.75;
+    /* max-width: 1200px; */
+    margin: auto;
 }
+
 .search-bar {
 	border-radius: 2em;
 	text-align: center;
