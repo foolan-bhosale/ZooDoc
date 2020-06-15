@@ -36,11 +36,12 @@ const Doctor = ({ match, userToken, reviewId, doctorID }) => {
 	return (
 		<>
 			<div className='container'>
-				<h1 className='my-4 doctor-heading'>
+
+				<h1 className='my-4 doctor-heading doctor-fullName'>
 					{doctor.first_name} {doctor.last_name}
 				</h1>
 				<div className='row'>
-					<div className='col-md-6 col-12'>
+					<div className='col-md-6 col-12 doctor-image'>
 						<img
 							className='img-thumbnail img-fluid'
 							src={doctor.image_url}
@@ -79,7 +80,11 @@ const Doctor = ({ match, userToken, reviewId, doctorID }) => {
 								</Link>
 							) : (
 								<Link to='/login'>
-									<button className='review-button'>Review Dr. {doctor.last_name}</button>
+
+									<button className='review-button'>
+										Review Dr. {doctor.last_name}
+									</button>
+
 								</Link>
 							)}
 						</div>

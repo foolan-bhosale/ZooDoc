@@ -3,7 +3,9 @@ import { Form, Button } from 'react-bootstrap';
 import { APIURL } from '../config';
 import { useState, useEffect } from 'react';
 import { Redirect, Link } from 'react-router-dom';
-function EditReview({ reviewId, userToken, doctorID, props }) {
+
+function EditReview({ reviewId, userToken, doctorID, }) {
+
 	const [review, setReview] = useState({
 		name: '',
 		description: '',
@@ -22,10 +24,14 @@ function EditReview({ reviewId, userToken, doctorID, props }) {
 		})
 			.then((response) => response.json())
 			.then((response) => {
+				console.log(response)
 				setReview(response);
 			})
 			.catch(console.error);
 	}, [reviewId, userToken]);
+
+	
+
 	const handleChange = (e) => {
 		setReview({ ...review, [e.target.name]: e.target.value });
 	};
