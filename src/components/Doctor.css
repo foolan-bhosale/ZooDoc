@@ -87,7 +87,7 @@
 	color: white;
 	font-family: 'Montserrat', sans-serif;
 
-		text-shadow: 0 0.3rem 0.5rem rgb(36, 33, 33);
+	text-shadow: 0 0.3rem 0.5rem rgb(36, 33, 33);
 }
 
 .doctor-about {
@@ -112,11 +112,10 @@
 	padding: 8px;
 	width: 100%;
 	font-weight: bold;
-  color: white;
+	color: white;
 	background-color: rgba(24, 143, 131, 0.831);
 	border-radius: 1.5em;
 	border: 1px solid rgb(223, 222, 222);
-
 }
 
 a {
@@ -133,9 +132,10 @@ a:hover {
 }
 
 .doctor-image {
-    padding-top:30px;
+	padding-top: 30px;
+}
 
-.signin-container, .signup-container {
-	width:700px;
-
+.signin-container,
+.signup-container {
+	width: 700px;
 }
