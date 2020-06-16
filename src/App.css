@@ -31,21 +31,21 @@ nav a:visited {
     width: 150%;
 }
 .sign-button {
-	border-radius: 4rem;
-	background-color: rgba(94, 71, 71, 0.125);
-	color: white;
-	font-weight: bolder;
-	font-size: 25px;
-	border: none;
+    border-radius: 4rem;
+    background-color: rgba(94, 71, 71, 0.125);
+    color: white;
+    font-weight: bolder;
+    font-size: 25px;
+    border: none;
 }
 
 @media (max-width: 600px) {
-	.sign-button {
-		font-size: 15px;
-	}
-	.login-button {
-		font-size: 15px;
-	}
+    .sign-button {
+        font-size: 15px;
+    }
+    .login-button {
+        font-size: 15px;
+    }
 }
 
 .findvet {
@@ -93,48 +93,48 @@ nav a:visited {
 }
 
 .search-bar {
-	border-radius: 2em;
-	text-align: center;
+    border-radius: 2em;
+    text-align: center;
 }
 .carousel-item > img {
-	width: 100%;
+    width: 100%;
 }
 
 .doctor-id {
-	display: none;
+    display: none;
 }
 .doctor-info {
-	color: white;
-	background-color: rgba(24, 143, 131, 0.831);
-	border-radius: 1.5em;
-	border: none;
-	/* text-shadow: 0 0.3rem 0.5rem rgb(36, 33, 33); */
+    color: white;
+    background-color: rgba(24, 143, 131, 0.831);
+    border-radius: 1.5em;
+    border: none;
+    /* text-shadow: 0 0.3rem 0.5rem rgb(36, 33, 33); */
 }
 .edit {
-	background-color: rgba(24, 143, 131, 0.831);
-	border: none;
-	/* text-shadow: 0 0.3rem 0.7rem rgb(36, 33, 33); */
+    background-color: rgba(24, 143, 131, 0.831);
+    border: none;
+    /* text-shadow: 0 0.3rem 0.7rem rgb(36, 33, 33); */
 }
 .delete {
-	background-color: rgba(240, 67, 67, 0.906);
-	color: white;
-	border: none;
-	/* text-shadow: 0 0.3rem 0.8rem rgb(36, 33, 33); */
+    background-color: rgba(240, 67, 67, 0.906);
+    color: white;
+    border: none;
+    /* text-shadow: 0 0.3rem 0.8rem rgb(36, 33, 33); */
 }
 .review-key {
-	font-weight: 500;
-	font-style: italic;
+    font-weight: 500;
+    font-style: italic;
 }
 .review-header {
-	color: white;
+    color: white;
 }
 .star-container {
-	margin-top: 30px;
-	padding-left: 20px;
+    margin-top: 30px;
+    padding-left: 20px;
 }
 .star-header {
     font-size: 30px;
-	color: white;
-	font-family: 'Montserrat', sans-serif;
-	/* text-shadow: 0 0.3rem 0.5rem rgb(36, 33, 33); */
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    /* text-shadow: 0 0.3rem 0.5rem rgb(36, 33, 33); */
 }

@@ -10,7 +10,7 @@ function Search(props) {
 			<div className='slideshow'>
 				<Slideshow />
 				<div className='container carousel-overlay text-center'>
-					<h2 className='findvet'>Find vets in your community</h2>
+					<h2 className='findvet'>Find Vets In Your Community</h2>
 
 					<div className='search-container'>
 						<div className='search row justify-content-center  ml-auto'>
